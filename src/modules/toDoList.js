@@ -1,7 +1,7 @@
 import { Project } from "./project.js";
 
 
-class ToDoList {
+export class ToDoList {
     constructor() {
         this.projects = []
         this.projects.push(new Project('Today'))
@@ -22,15 +22,15 @@ class ToDoList {
     }
 }
 
-let toDos = new ToDoList()
+// let toDos = new ToDoList()
 
-toDos.addProject('Coding')
-toDos.getProjects()[1].addToDo('Learn and Practice HTML', new Date())
+// toDos.addProject('Coding')
+// toDos.getProjects()[1].addToDo('Learn and Practice HTML', new Date())
 
-toDos.getProjects().forEach((project) => {
-    console.log(`${project.title} `)
-    project.getAllToDo().forEach((todo) => {
-        console.log(todo)
-    })
-    console.log('\n')
-})
+// toDos.getProjects().forEach((project) => {
+//     console.log(`${project.title} `)
+//     project.getAllToDo().forEach((todo) => {
+//         console.log(todo)
+//     })
+//     console.log('\n')
+// })
