@@ -1,0 +1,1 @@
+(()=>{let e=document.querySelector("body"),t=document.createElement("h1");t.textContent="TO DO APP",e.appendChild(t)})();
