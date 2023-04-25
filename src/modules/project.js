@@ -1,4 +1,5 @@
 import ToDo from "./todo.js";
+import { saveProject } from "./storage.js";
 
 export class Project {
     constructor(title) {
@@ -9,6 +10,7 @@ export class Project {
     addToDo(description, dueDate) {
         let toDo = new ToDo(description, dueDate);
         this.todoList.push(toDo)
+            // saveProject(toDo)
     }
 
 

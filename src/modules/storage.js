@@ -28,17 +28,17 @@ function storageAvailable(type) {
 }
 
 
-export function createStorage() {
+
+export function createStorage(data) {
 
     if (storageAvailable("localStorage")) {
         // Yippee! We can use localStorage awesomeness
-        let toDos = new ToDoList()
 
-        toDos.addProject('Coding')
-        toDos.getProjects()[1].addToDo('Learn and Practice HTML', new Date())
+        data.addProject('Coding')
+        data.getProjects()[1].addToDo('Learn and Practice HTML', new Date())
 
 
-        localStorage.setItem("toDolist", JSON.stringify(toDos.getProjects()))
+        localStorage.setItem("toDoList", JSON.stringify(data.getProjects()))
 
 
 
@@ -51,9 +51,12 @@ export function createStorage() {
 
 
 
-function saveData() {
+export function saveProject(data) {
 
-
+    let oldData = JSON.parse(localStorage.getItem("toDoList"))
+    oldData.push(data)
+    let newData = oldData
+    localStorage.setItem('toDoList', JSON.stringify(newData))
 
 }
 

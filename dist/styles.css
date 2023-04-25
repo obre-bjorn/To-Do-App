@@ -1,0 +1,34 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-size: 16px;
+}
+
+#app-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#side-nav {
+    background-color: #101b1bce;
+    flex: 1 1 300px;
+    text-align: center;
+    padding-top: 2rem;
+    color: #b1dada;
+    font-family: monospace;
+}
+
+#content {
+    background-color: #b1dada;
+    flex: 8 1 400px;
+}
+
+.project {
+    width: 100%;
+    color: #b1dada
+}
