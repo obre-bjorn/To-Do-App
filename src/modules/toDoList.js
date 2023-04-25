@@ -1,5 +1,6 @@
 import { Project } from "./project.js";
 import { createStorage, saveProject } from "./storage.js";
+import { addProject } from "./UI.js";
 
 export class ToDoList {
     constructor() {
@@ -10,6 +11,7 @@ export class ToDoList {
     addProject(title) {
         let project = new Project(title)
         this.projects.push(project)
+        addProject(title)
         saveProject(project)
     }
 

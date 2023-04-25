@@ -1,5 +1,5 @@
 import { createStorage } from "./modules/storage.js";
-import { ToDoList, toDos } from "./modules/toDoList.js";
+import { ToDoList } from "./modules/toDoList.js";
 
 
 let list = new ToDoList()
@@ -20,4 +20,13 @@ storage.forEach(element => {
     projectContainer.appendChild(project)
 });
 
-list.addProject("Laundry")
+let addProj = document.getElementById('addProject')
+
+addProj.addEventListener('submit', function(e) {
+    let projectData = document.getElementById('projectName')
+    list.addProject(projectData.value)
+    e.preventDefault()
+    addProj.reset()
+})
+
+// list.addProject("Laundry")
