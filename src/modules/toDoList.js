@@ -11,8 +11,8 @@ export class ToDoList {
     addProject(title) {
         let project = new Project(title)
         this.projects.push(project)
-        addProject(title)
         saveProject(project)
+        addProject(title)
     }
 
     deleteProject() {

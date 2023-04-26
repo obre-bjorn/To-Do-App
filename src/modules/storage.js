@@ -36,11 +36,11 @@ export function createStorage(data) {
 
         if (localStorage.getItem('toDoList') === null) {
 
-
-            data.addProject('Coding')
-            data.getProjects()[1].addToDo('Learn and Practice HTML', new Date())
-
             localStorage.setItem("toDoList", JSON.stringify(data.getProjects()))
+
+            // data.addProject('Coding')
+            // data.getProjects()[1].addToDo('Learn and Practice HTML', new Date())
+
         }
 
 

@@ -21,14 +21,53 @@ body {
     padding-top: 2rem;
     color: #b1dada;
     font-family: monospace;
+    padding: 1rem;
+}
+
+#addProject {
+    margin-top: 1.5rem;
+    width: 100%;
+    position: relative;
+    height: 2rem;
+    padding: 1rem;
+}
+
+#projectName {
+    border: none;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 20px;
+    /* border-radius: 1rem; */
+    height: 100%;
+}
+
+#add-project {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #101b1bce;
+    height: 100%;
+    color: #b1dada;
+    width: 2.5rem;
+    /* padding: 10px 20px; */
+    /* border-radius: 1rem; */
+}
+
+#projects {
+    margin-top: 2rem;
+}
+
+.project {
+    width: 100%;
+    color: #b1dada;
+    padding: 10px 20px;
+    background-color: #101b1bce;
+    border: none;
 }
 
 #content {
     background-color: #b1dada;
     flex: 8 1 400px;
-}
-
-.project {
-    width: 100%;
-    color: #b1dada
 }

@@ -3,6 +3,7 @@ export function addProject(title) {
 
     let project = document.createElement('button');
     project.textContent = title
+    project.classList.add('project')
     projectContainer.appendChild(project)
 
 }
