@@ -57,12 +57,13 @@ export function createStorage(data) {
 
 export function saveProject(data) {
 
-    let oldData = JSON.parse(localStorage.getItem("toDoList"))
+    let oldData = getData()
     oldData.push(data)
     localStorage.setItem('toDoList', JSON.stringify(oldData))
 
 }
 
-function getData() {
-
+export function getData() {
+    let data = JSON.parse(localStorage.getItem("toDoList"))
+    return data
 }

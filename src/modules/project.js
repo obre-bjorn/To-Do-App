@@ -3,6 +3,7 @@ import { saveProject } from "./storage.js";
 
 export class Project {
     constructor(title) {
+        this.id = new Date()
         this.title = title
         this.todoList = []
     }
