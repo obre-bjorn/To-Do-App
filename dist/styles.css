@@ -29,7 +29,7 @@ body {
     margin-top: 1.5rem;
     width: 100%;
     position: relative;
-    height: 2rem;
+    /* height: 100%; */
     padding: 1rem;
 }
 
@@ -52,6 +52,7 @@ body {
     height: 100%;
     color: #b1dada;
     width: 2.5rem;
+    /* padding: 1.5rem */
     /* padding: 10px 20px; */
     /* border-radius: 1rem; */
 }
@@ -67,6 +68,13 @@ body {
     background-color: #101b1bce;
     border: none;
     margin-top: .2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-project {
+    cursor: pointer
 }
 
 #content {

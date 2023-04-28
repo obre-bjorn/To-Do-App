@@ -2,12 +2,17 @@ import { getData } from "./storage";
 
 export function addProject(title) {
     let projectContainer = document.getElementById('projects')
+        // let project = document.querySelector('.project')
 
-    let project = document.createElement('button');
-    project.textContent = title
-    project.classList.add('project')
-    project.addEventListener('click', displayToDos)
-    projectContainer.appendChild(project)
+    // projectContainer.appendChild(project)
+
+    const projectView = `<div class="project">
+    <span>${title}</span>
+    <i class="fa-solid fa-trash delete-project"></i>
+    </div>`
+
+    projectContainer.insertAdjacentHTML('beforeend', projectView)
+        // project.addEventListener('click', displayToDos)
 
 }
 
