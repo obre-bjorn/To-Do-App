@@ -2,10 +2,20 @@ import ToDo from "./todo.js";
 import { saveProject } from "./storage.js";
 
 export class Project {
-    constructor(title) {
-        this.id = new Date()
+
+    constructor(id, title) {
+        this.id = id
         this.title = title
         this.todoList = []
+    }
+
+
+    getProjectInfo() {
+        return {
+            id: this.id,
+            title: this.title,
+            tasks: this.todoList
+        }
     }
 
     addToDo(description, dueDate) {
