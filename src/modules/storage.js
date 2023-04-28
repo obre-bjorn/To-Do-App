@@ -1,4 +1,5 @@
 import { ToDoList } from './toDoList'
+import { addProject } from './UI';
 
 function storageAvailable(type) {
     let storage;
@@ -34,7 +35,7 @@ export function createStorage(data) {
     if (storageAvailable("localStorage")) {
         // Yippee! We can use localStorage awesomeness
 
-        if (localStorage.getItem('toDoList') === null) {
+        if (checkStorageData() === 0) {
 
 
             localStorage.setItem("toDoList", JSON.stringify(data.getProjects()))
@@ -45,17 +46,33 @@ export function createStorage(data) {
                 // data.getProjects()[1].addToDo('Learn and Practice HTML', new Date())
 
 
+        } else {
+
+            let storage = JSON.parse(localStorage.getItem('toDoList'))
+            console.log(storage)
+            storage.forEach(project => {
+                let id = `project${project.id}`
+                addProject(id, project.title)
+            });
 
         }
-
-
-
-
 
     } else {
         // Too bad, no localStorage for us
     }
 
+}
+
+
+export function checkStorageData() {
+    let data = localStorage.getItem('toDoList')
+
+    if (data) {
+        let dataLength = JSON.parse(localStorage.getItem('toDoList')).length
+        return (dataLength)
+    } else {
+        return 0;
+    }
 }
 
 

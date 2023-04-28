@@ -1,11 +1,11 @@
 import { Project } from "./project.js";
-import { createStorage, saveProject } from "./storage.js";
+import { createStorage, saveProject, checkStorageData } from "./storage.js";
 import { addProject as domAddProject } from "./UI.js";
 
 export class ToDoList {
     constructor() {
         this.projects = []
-        this.id = 0
+        this.id = checkStorageData()
 
 
     }

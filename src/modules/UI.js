@@ -13,7 +13,6 @@ export function addProject(id, title) {
         // project.addEventListener('click', displayToDos)
 
     let project = projectContainer.querySelector(`#${id}`)
-    console.log(project)
     project.addEventListener('click', displayToDos)
         // }
         // console.log(project)

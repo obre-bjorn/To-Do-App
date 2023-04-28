@@ -26,6 +26,7 @@ let addProj = document.getElementById('addProject')
 
 addProj.addEventListener('submit', function(e) {
     let projectData = document.getElementById('projectName')
+    console.log(projectData);
     list.addProject(projectData.value)
     e.preventDefault()
     addProj.reset()
