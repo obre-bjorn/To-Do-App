@@ -6,6 +6,7 @@ export class ToDoList {
     constructor() {
         this.projects = []
         this.projects.push(new Project('Today'))
+        this.projects.push(new Project('Important'))
     }
 
     addProject(title) {
