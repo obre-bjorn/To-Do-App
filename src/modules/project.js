@@ -18,14 +18,14 @@ export class Project {
         }
     }
 
-    addToDo(description, dueDate) {
+    addTask(description, dueDate) {
         let toDo = new ToDo(description, dueDate);
         this.todoList.push(toDo)
             // saveProject(toDo)
     }
 
 
-    getAllToDo() {
+    getTasks() {
         return this.todoList
     }
 

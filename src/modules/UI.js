@@ -1,6 +1,15 @@
 import { getData } from "./storage";
 
-export function addProject(id, title) {
+
+function eventListeners() {
+
+
+
+
+
+}
+
+function addProject(id, title) {
     let projectContainer = document.getElementById('projects')
         // let project = document.querySelector('.project')
 
@@ -13,20 +22,22 @@ export function addProject(id, title) {
         // project.addEventListener('click', displayToDos)
 
     let project = projectContainer.querySelector(`#${id}`)
-    project.addEventListener('click', displayToDos)
+    project.addEventListener('click', displayTask)
         // }
         // console.log(project)
 }
 
-function displayToDos(element) {
+function displayTask(element) {
     let storageData = getData()
     let dataAvailable = storageData.find(proj => proj.id === element.target.id)
     let taskContainer = document.getElementById('task-container')
-    console.log(element.target.id)
+    console.log(element.target.id.split('project'))
         // dataAvailable.todoList.forEach(tasks => {
-
 
     // });
 
 
 }
+
+
+export { eventListeners, displayTask, addProject }
