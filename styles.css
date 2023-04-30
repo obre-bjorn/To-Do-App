@@ -80,6 +80,7 @@ body {
 #content {
     background-color: #b1dada;
     flex: 8 1 400px;
+    position: relative;
 }
 
 #content>.title {
@@ -104,6 +105,13 @@ body {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
+
+#add-task {
+    font-size: 6rem;
+    position: fixed;
+    bottom: 1.5rem;
+    right: 10rem;
 }
 
 input[type=checkbox] {
