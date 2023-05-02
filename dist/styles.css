@@ -5,6 +5,7 @@
 
 body {
     font-size: 16px;
+    font-family: monospace;
 }
 
 #app-container {
@@ -71,6 +72,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.project.active {
+    background-color: #b1dada;
+    color: #101b1bce;
 }
 
 .delete-project {
@@ -140,4 +146,80 @@ input[type=checkbox] {
 
 .important.active {
     color: goldenrod;
+}
+
+#overlay {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    top: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(32, 126, 132, 0.33);
+}
+
+#add-task-form {
+    height: 60vh;
+    width: 40vw;
+    background-color: #101b1bce;
+    font-size: 1.2rem;
+    padding: 5rem;
+    padding-left: 6rem;
+    border-radius: 2rem;
+    color: #b1dada;
+}
+
+#add-task-form>.title {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.input>input {
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+label {
+    font-size: 1.5rem;
+}
+
+.label-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.form-control {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.form-control>input {
+    padding: .8rem;
+    width: 8rem;
+    font-size: 1.2rem;
+}
+
+input[type="submit"] {
+    background-color: #b1dada;
+    color: #101b1bce;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="button"] {
+    background-color: transparent;
+    border-color: #b1dada;
+    color: #b1dada;
+    cursor: pointer;
 }

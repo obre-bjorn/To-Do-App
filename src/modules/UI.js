@@ -29,9 +29,11 @@ function addProject(id, title) {
 
 function displayTask(element) {
     let storageData = getData()
-    let dataAvailable = storageData.find(proj => proj.id === element.target.id)
     let taskContainer = document.getElementById('task-container')
-    console.log(element.target.id.split('project'))
+    let projectId = element.target.id.split('project')[1]
+    let dataAvailable = storageData.find(proj => proj.id === parseInt(projectId))
+
+    console.log(dataAvailable)
         // dataAvailable.todoList.forEach(tasks => {
 
     // });

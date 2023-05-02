@@ -1,5 +1,5 @@
 export default class ToDo {
-    constructor(description, dueDate, completed = false, important = false) {
+    constructor(description, dueDate, important = false, completed = false) {
         this.id = new Date()
         this.description = description
         this.dueDate = dueDate
