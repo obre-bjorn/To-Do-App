@@ -5,18 +5,21 @@ import { addProject as domAddProject } from "./UI.js";
 export class ToDoList {
     constructor() {
         this.projects = []
-        this.id = checkStorageData()
+        this.id = 0
 
 
     }
 
-    addProject(title) {
+    addProject(title, available) {
         let project = new Project(this.id, title)
         this.projects.push(project)
-        saveProject(project)
         let projectData = project.getProjectInfo()
         domAddProject(`project${this.id}`, projectData.title)
+        console.log(this.projects)
         this.id++
+            if (!available) {
+                saveProject(project)
+            }
     }
 
     deleteProject() {

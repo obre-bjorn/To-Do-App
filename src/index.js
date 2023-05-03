@@ -6,6 +6,7 @@ import { addProject as ad } from "./modules/UI.js";
 let list = new ToDoList()
 
 
+
 createStorage(list)
 
 console.log(list)
@@ -32,21 +33,48 @@ let addProj = document.getElementById("addProject")
 addProj.addEventListener("submit", function(e) {
     e.preventDefault()
     let projectData = document.getElementById("projectName")
-    console.log(projectData);
+        // console.log(projectData);
     list.addProject(projectData.value)
     addProj.reset()
 })
 
+
+
+// ADD TASK FORM
 let addTask = document.getElementById("add-task-form")
 
 addTask.addEventListener('submit', function(e) {
     e.preventDefault()
     const taskData = new FormData(addTask)
-    console.log(Object.fromEntries(taskData.entries()))
+    let taskDataObject = Object.fromEntries(taskData.entries())
+
+    let activeProject = document.querySelector('.project.active')
+    let project = getItemById(activeProject, 'project')
+    project.addTask(taskDataObject.taskname, taskData.duedate)
+    console.log(project)
+
 
 
     addTask.reset()
 
 })
+
+
+
+
+function getItemById(element, item) {
+
+
+    // TO DO: CHANGE TO USE SWITCH & CASE -------------
+    if (item === "project") {
+        let projectId = element.id.split('project')[1]
+        let data = list.getProjects().find(proj => proj.id === parseInt(projectId))
+        return data
+    } else {
+
+    }
+
+
+}
 
 // list.addProject("Laundry")

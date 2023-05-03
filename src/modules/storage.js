@@ -40,8 +40,8 @@ export function createStorage(data) {
 
             localStorage.setItem("toDoList", JSON.stringify(data.getProjects()))
 
-            data.addProject("Today")
-            data.addProject("Important")
+            data.addProject("Today", false)
+            data.addProject("Important", false)
                 // data.addProject('Coding')
                 // data.getProjects()[1].addToDo('Learn and Practice HTML', new Date())
 
@@ -49,10 +49,10 @@ export function createStorage(data) {
         } else {
 
             let storage = JSON.parse(localStorage.getItem('toDoList'))
-            console.log(storage)
+                // console.log(storage)
             storage.forEach(project => {
                 let id = `project${project.id}`
-                addProject(id, project.title)
+                data.addProject(project.title, true)
             });
 
         }
@@ -68,8 +68,9 @@ export function checkStorageData() {
     let data = localStorage.getItem('toDoList')
 
     if (data) {
-        let dataLength = JSON.parse(localStorage.getItem('toDoList')).length
-        return (dataLength)
+        let data = JSON.parse(localStorage.getItem('toDoList'))
+        let lastDataId = data[data.length - 1].id
+        return (lastDataId)
     } else {
         return 0;
     }

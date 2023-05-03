@@ -9,21 +9,6 @@ function eventListeners() {
 
 }
 
-function getItemDataById(element, item) {
-    let storageData = getData()
-
-
-    // TO DO: CHANGE TO USE SWITCH & CASE -------------
-
-    if (item === "project") {
-        let projectId = element.target.id.split('project')[1]
-        return storageData.find(proj => proj.id === parseInt(projectId))
-    } else {
-
-    }
-
-
-}
 
 function addProject(id, title) {
     let projectContainer = document.getElementById('projects')
@@ -45,6 +30,14 @@ function addProject(id, title) {
 
 
 function addTask() {
+    let taskContainer = document.getElementById('task-container')
+    let taskView = `<div class="task">
+                    <input type="checkbox" name="" id="" class="task-done"><span class="task-name">Wash the Dishes</span><i class="fa-solid fa-star important active"></i>
+                </div>`
+
+
+
+
 
 }
 
@@ -54,11 +47,11 @@ function displayTask(element) {
     //Set active Button
 
     let taskContainer = document.getElementById('task-container')
-    let dataAvailable = getItemDataById(element, 'project')
+        // let projectData = getItemDataById(element, "project")
 
 
-    console.log(dataAvailable)
-        // dataAvailable.todoList.forEach(tasks => {
+    // console.log(projectData)
+    // dataAvailable.todoList.forEach(tasks => {
 
     // });
     if (element.target.classList.contains('active')) {
@@ -66,9 +59,6 @@ function displayTask(element) {
     }
 
     setActiveTask(element)
-
-
-
 
 
 }
