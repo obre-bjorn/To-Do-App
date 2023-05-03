@@ -32,6 +32,9 @@ body {
     position: relative;
     /* height: 100%; */
     padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #projectName {
@@ -52,7 +55,8 @@ body {
     background-color: #101b1bce;
     height: 100%;
     color: #b1dada;
-    width: 2.5rem;
+    padding: 2rem: /* width: 2.5rem; */
+    /* font-size: 2rem; */
     /* padding: 1.5rem */
     /* padding: 10px 20px; */
     /* border-radius: 1rem; */
