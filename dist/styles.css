@@ -148,15 +148,19 @@ input[type=checkbox] {
     color: goldenrod;
 }
 
-#overlay {
+.overlay {
     position: absolute;
     width: 100vw;
     height: 100vh;
-    display: flex;
+    display: none;
     top: 0;
     align-items: center;
     justify-content: center;
     background-color: rgba(32, 126, 132, 0.33);
+}
+
+.overlay.active {
+    display: flex;
 }
 
 #add-task-form {

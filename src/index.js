@@ -22,14 +22,31 @@ let storage = JSON.parse(localStorage.getItem('toDoList'))
 //     list.addProject(element.id, element.title)
 // });
 
-let addProj = document.getElementById('addProject')
 
-addProj.addEventListener('submit', function(e) {
-    let projectData = document.getElementById('projectName')
+// Set Today project to active
+
+
+
+let addProj = document.getElementById("addProject")
+
+addProj.addEventListener("submit", function(e) {
+    e.preventDefault()
+    let projectData = document.getElementById("projectName")
     console.log(projectData);
     list.addProject(projectData.value)
-    e.preventDefault()
     addProj.reset()
+})
+
+let addTask = document.getElementById("add-task-form")
+
+addTask.addEventListener('submit', function(e) {
+    e.preventDefault()
+    const taskData = new FormData(addTask)
+    console.log(Object.fromEntries(taskData.entries()))
+
+
+    addTask.reset()
+
 })
 
 // list.addProject("Laundry")
