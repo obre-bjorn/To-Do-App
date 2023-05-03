@@ -50,7 +50,7 @@ addTask.addEventListener('submit', function(e) {
 
     let activeProject = document.querySelector('.project.active')
     let project = getItemById(activeProject, 'project')
-    project.addTask(taskDataObject.taskname, taskDataObject.duedate)
+    project.projectData.addTask(project.id, taskDataObject.taskname, taskDataObject.duedate)
     console.log(project)
 
 
@@ -69,7 +69,7 @@ function getItemById(element, item) {
     if (item === "project") {
         let projectId = element.id.split('project')[1]
         let data = list.getProjects().find(proj => proj.id === parseInt(projectId))
-        return data
+        return { id: projectId, projectData: data }
     } else {
 
     }
