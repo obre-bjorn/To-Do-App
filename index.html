@@ -34,7 +34,7 @@
         </div>
 
     </div>
-    <div id="overlay">
+    <div class="overlay">
         <form action="" id="add-task-form">
             <h3 class="title">Add task</h3>
 
@@ -42,7 +42,7 @@
                 <label for="taskname">Task:</label>
             </div>
             <div class="input">
-                <input type="text" name="taskname" placeholder="Enter Task" id="taskname">
+                <input type="text" name="taskname" placeholder="Enter Task" id="taskname" required>
             </div>
 
 
@@ -56,7 +56,7 @@
 
             <div class="label-checkbox">
                 <label for="important">Important:</label>
-                <input type="checkbox" name="important" id="important">
+                <input type="checkbox" name="important" id="important" value="true">
             </div>
             <div class="form-control">
                 <input type="submit" value="Submit">
