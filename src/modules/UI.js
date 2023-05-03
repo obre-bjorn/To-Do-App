@@ -29,12 +29,13 @@ function addProject(id, title) {
 }
 
 
-function addTask() {
+function addTask(id, taskname, duedate, important) {
     let taskContainer = document.getElementById('task-container')
-    let taskView = `<div class="task">
-                    <input type="checkbox" name="" id="" class="task-done"><span class="task-name">Wash the Dishes</span><i class="fa-solid fa-star important active"></i>
-                </div>`
 
+    let taskView = `<div id="${id}" class="task">
+                        <input type="checkbox" name="completed" id="" class="task-done"><span class="task-name">${taskname}</span><i class="fa-solid fa-star important active"></i>
+                    </div>`
+    taskContainer.insertAdjacentHTML('beforeend', taskView)
 
 
 
@@ -79,4 +80,4 @@ function setActiveTask(proj) {
 
 
 
-export { eventListeners, displayTask, addProject }
+export { eventListeners, displayTask, addProject, addTask }

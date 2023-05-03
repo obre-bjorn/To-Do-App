@@ -1,10 +1,11 @@
 import ToDo from "./todo.js";
 import { saveProject } from "./storage.js";
+import { addTask as addTaskUI } from "./UI.js";
 
 export class Project {
 
     constructor(id, title) {
-        this.id = id
+        this.id = 0
         this.title = title
         this.todoList = []
     }
@@ -21,7 +22,11 @@ export class Project {
     addTask(description, dueDate) {
         let toDo = new ToDo(description, dueDate);
         this.todoList.push(toDo)
-            // saveProject(toDo)
+        addTaskUI(this.id, description, dueDate, false)
+
+
+        // saveProject(toDo)
+        this.id++
     }
 
 

@@ -86,6 +86,8 @@ export function saveProject(data) {
 
 }
 
+
+
 export function getData() {
     let data = JSON.parse(localStorage.getItem("toDoList"))
     return data
