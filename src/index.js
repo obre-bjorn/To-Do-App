@@ -50,7 +50,7 @@ addTask.addEventListener('submit', function(e) {
 
     let activeProject = document.querySelector('.project.active')
     let project = getItemById(activeProject, 'project')
-    project.addTask(taskDataObject.taskname, taskData.duedate)
+    project.addTask(taskDataObject.taskname, taskDataObject.duedate)
     console.log(project)
 
 
