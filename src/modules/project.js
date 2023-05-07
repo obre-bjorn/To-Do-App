@@ -5,8 +5,8 @@ import { addTask as addTaskUI } from "./UI.js";
 export class Project {
 
     constructor(id, title) {
-        this.id = id
-        this.title = title
+        this.id =
+            this.title = title
         this.todoList = []
     }
 
