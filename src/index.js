@@ -62,10 +62,15 @@ addTask.addEventListener('submit', function(e) {
 
 
 
-function getItemById(element, item) {
+
+// TODO : Change module location 
 
 
-    // TO DO: CHANGE TO USE SWITCH & CASE -------------
+export function getItemById(element, item) {
+
+
+    // TODO: CHANGE TO USE SWITCH & CASE -------------
+
     if (item === "project") {
         let projectId = element.id.split('project')[1]
         let data = list.getProjects().find(proj => proj.id === parseInt(projectId))
@@ -73,6 +78,7 @@ function getItemById(element, item) {
     } else {
 
     }
+
 
 
 }

@@ -1,13 +1,20 @@
 import { getData } from "./storage";
 
 
+// ! TO CHANGE!!
+import { getItemById } from "../index";
+
 function eventListeners() {
 
-
-
-
-
 }
+
+
+function clearContainer(container) {
+    container.innerHTML = ""
+}
+
+
+
 
 
 function addProject(id, title) {
@@ -59,7 +66,13 @@ function displayTask(element) {
         return
     }
 
+
     setActiveTask(element)
+    clearContainer(taskContainer)
+    let activeProject = document.querySelector('.project.active')
+    let project = getItemById(activeProject, 'project')
+    let data = project.projectData
+    console.log(data)
 
 
 }
