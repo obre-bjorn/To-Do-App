@@ -69,10 +69,10 @@ function displayTask(element) {
 
     setActiveTask(element)
     clearContainer(taskContainer)
-    let activeProject = document.querySelector('.project.active')
-    let project = getItemById(activeProject, 'project')
-    let data = project.projectData
-    console.log(data)
+        // let activeProject = document.querySelector('.project.active')
+        // let project = getItemById(activeProject, 'project')
+        // let data = project.projectData
+        // console.log(data)
 
 
 }

@@ -5,8 +5,8 @@ import { addTask as addTaskUI } from "./UI.js";
 export class Project {
 
     constructor(id, title) {
-        this.id =
-            this.title = title
+        this.id = id
+        this.title = title
         this.todoList = []
     }
 
@@ -22,8 +22,8 @@ export class Project {
     addTask(projectId, description, dueDate) {
         let toDo = new ToDo(description, dueDate);
         this.todoList.push(toDo)
-        addTaskUI(this.id, description, dueDate, false)
         saveTask(projectId, toDo)
+        addTaskUI(this.id, description, dueDate, false)
         this.id++
     }
 

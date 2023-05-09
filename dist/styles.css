@@ -131,6 +131,7 @@ body {
     position: fixed;
     bottom: 1.5rem;
     right: 10rem;
+    cursor: pointer;
 }
 
 input[type=checkbox] {
