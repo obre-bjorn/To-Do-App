@@ -15,7 +15,6 @@ export class ToDoList {
         this.projects.push(project)
         let projectData = project.getProjectInfo()
         domAddProject(`project${this.id}`, projectData.title)
-        console.log(this.projects)
         this.id++
             if (!available) {
                 saveProject(project)

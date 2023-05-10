@@ -69,7 +69,6 @@ function displayTask(element) {
     clearContainer(taskContainer)
     let activeProject = document.querySelector('.project.active')
     let project = getItemById(activeProject, 'project')
-    console.log(project)
     let data = project.projectData
 
     let tasks = data.getTasks()
@@ -79,8 +78,12 @@ function displayTask(element) {
         let noTasksHTML = ` <h3>No tasks available. Click the (+) button below to add tasks</h3>`
         taskContainer.insertAdjacentHTML("beforeend", noTasksHTML)
     } else {
-        console.log(data)
-        // tasks.forEach(task => addTask(task.id, task.title))
+        tasks.forEach((task) =>{
+            let taskHTML = `<div id="${id}" class="task">
+                        <input type="checkbox" name="completed" id="" class="task-done"><span class="task-name">${taskname}</span><i class="fa-solid fa-star important active"></i>
+                    </div>`
+        taskContainer.insertAdjacentHTML()})
+    
     }
 
 

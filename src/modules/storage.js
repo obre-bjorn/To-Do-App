@@ -52,9 +52,17 @@ export function createStorage(data) {
                 // console.log(storage)
             storage.forEach(project => {
                 data.addProject(project.title, true)
+                if(project.todoList.length){
+                    let projects = data.getProjects()
+
+                    let tasks = project.todoList
+                    console.log(tasks)
+                    // projects[projects.length - 1].addTask(project.todoList)
+                }
             });
 
         }
+        // console.log(data.getProjects())
 
     } else {
         // Too bad, no localStorage for us

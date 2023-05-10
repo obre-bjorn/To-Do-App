@@ -9,7 +9,6 @@ let list = new ToDoList()
 
 createStorage(list)
 
-console.log(list)
 
 let storage = JSON.parse(localStorage.getItem('toDoList'))
     // console.log(storage)
@@ -70,7 +69,6 @@ addTask.addEventListener('submit', function(e) {
     // ^
     let activeProject = document.querySelector('.project.active')
     let project = getItemById(activeProject, 'project')
-    console.log(project)
     project.projectData.addTask(project.id, taskDataObject.taskname, taskDataObject.duedate)
 
     addTask.reset()

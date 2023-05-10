@@ -19,11 +19,11 @@ export class Project {
         }
     }
 
-    addTask(projectId, description, dueDate) {
+    addTask(projectId, description, dueDate,available) {
         let toDo = new ToDo(description, dueDate);
         this.todoList.push(toDo)
-        saveTask(projectId, toDo)
         addTaskUI(this.id, description, dueDate, false)
+        saveTask(projectId, toDo)
         
     }
 
