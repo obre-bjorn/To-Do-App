@@ -4,6 +4,7 @@ import { getData } from "./storage";
 // ! TO CHANGE!!
 import { getItemById } from "../index";
 
+
 function eventListeners() {
 
 }
@@ -44,9 +45,6 @@ function addTask(id, taskname, duedate, important) {
                     </div>`
     taskContainer.insertAdjacentHTML('beforeend', taskView)
 
-
-
-
 }
 
 function displayTask(element) {
@@ -71,8 +69,19 @@ function displayTask(element) {
     clearContainer(taskContainer)
     let activeProject = document.querySelector('.project.active')
     let project = getItemById(activeProject, 'project')
+    console.log(project)
     let data = project.projectData
-    console.log(data.getTasks())
+
+    let tasks = data.getTasks()
+
+    if (!tasks.length) {
+
+        let noTasksHTML = ` <h3>No tasks available. Click the (+) button below to add tasks</h3>`
+        taskContainer.insertAdjacentHTML("beforeend", noTasksHTML)
+    } else {
+        console.log(data)
+        // tasks.forEach(task => addTask(task.id, task.title))
+    }
 
 
 }

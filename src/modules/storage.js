@@ -51,7 +51,6 @@ export function createStorage(data) {
             let storage = JSON.parse(localStorage.getItem('toDoList'))
                 // console.log(storage)
             storage.forEach(project => {
-                let id = `project${project.id}`
                 data.addProject(project.title, true)
             });
 

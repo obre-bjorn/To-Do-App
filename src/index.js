@@ -70,13 +70,11 @@ addTask.addEventListener('submit', function(e) {
     // ^
     let activeProject = document.querySelector('.project.active')
     let project = getItemById(activeProject, 'project')
-
-
-    // project.projectData.addTask(project.id, taskDataObject.taskname, taskDataObject.duedate)
-
-
+    console.log(project)
+    project.projectData.addTask(project.id, taskDataObject.taskname, taskDataObject.duedate)
 
     addTask.reset()
+
 
 })
 

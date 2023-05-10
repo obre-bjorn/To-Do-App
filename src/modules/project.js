@@ -24,7 +24,7 @@ export class Project {
         this.todoList.push(toDo)
         saveTask(projectId, toDo)
         addTaskUI(this.id, description, dueDate, false)
-        this.id++
+        
     }
 
 
