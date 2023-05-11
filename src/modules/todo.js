@@ -1,6 +1,6 @@
 export default class ToDo {
-    constructor(description, dueDate, important = false, completed = false) {
-        this.id = new Date()
+    constructor(id,description, dueDate, important = false, completed = false) {
+        this.id = id
         this.description = description
         this.dueDate = new Date(dueDate)
         this.completed = completed

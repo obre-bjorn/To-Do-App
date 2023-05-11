@@ -57,7 +57,9 @@ export function createStorage(data) {
 
                     let tasks = project.todoList
                     console.log(tasks)
-                    // projects[projects.length - 1].addTask(project.todoList)
+                    tasks.forEach(task=> {
+                        projects[projects.length - 1].addTask(project.id,task.description,task.dueDate,true)
+                    })
                 }
             });
 

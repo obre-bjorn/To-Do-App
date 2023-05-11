@@ -8,6 +8,7 @@ export class Project {
         this.id = id
         this.title = title
         this.todoList = []
+        this.taskId = 0
     }
 
 
@@ -19,11 +20,16 @@ export class Project {
         }
     }
 
-    addTask(projectId, description, dueDate,available) {
-        let toDo = new ToDo(description, dueDate);
+    addTask(projectId,description, dueDate,available) {
+        let toDo = new ToDo(this.taskId,description, dueDate);
         this.todoList.push(toDo)
-        addTaskUI(this.id, description, dueDate, false)
-        saveTask(projectId, toDo)
+        
+        if(!available){
+            addTaskUI(`task${this.taskId}`, description, dueDate)
+            saveTask(projectId, toDo)
+        }
+
+        this.taskId++
         
     }
 
