@@ -64,28 +64,30 @@ function displayTask(element) {
         return
     }
 
-
-    setActiveTask(element)
-    clearContainer(taskContainer)
-    let activeProject = document.querySelector('.project.active')
-    let project = getItemById(activeProject, 'project')
-    let data = project.projectData
-
-    let tasks = data.getTasks()
-
-    if (!tasks.length) {
-
-        let noTasksHTML = ` <h3>No tasks available. Click the (+) button below to add tasks</h3>`
-        taskContainer.insertAdjacentHTML("beforeend", noTasksHTML)
-    } else {
-        tasks.forEach((task) =>{
-            console.log(task)
-            let taskHTML = `<div id="${task.id}" class="task">
-                        <input type="checkbox" name="completed" id="" class="task-done"><span class="task-name">${task.description}</span><i class="fa-solid fa-star important active"></i>
-                    </div>`
-        taskContainer.insertAdjacentHTML("beforeend",taskHTML)})
+        
+            setActiveTask(element)
+            clearContainer(taskContainer)
+            let activeProject = document.querySelector('.project.active')
+            let project = getItemById(activeProject, 'project')
+            let data = project.projectData
+        
+            let tasks = data.getTasks()
+        
+            if (!tasks.length) {
+        
+                let noTasksHTML = ` <h3>No tasks available. Click the (+) button below to add tasks</h3>`
+                taskContainer.insertAdjacentHTML("beforeend", noTasksHTML)
+            } else {
+                tasks.forEach((task) =>{
+                    console.log(task)
+                    let taskHTML = `<div id="${task.id}" class="task">
+                                <input type="checkbox" name="completed" id="" class="task-done"><span class="task-name">${task.description}</span><i class="fa-solid fa-star important active"></i>
+                            </div>`
+                taskContainer.insertAdjacentHTML("beforeend",taskHTML)})
+            
+            }
     
-    }
+
 
 
 }

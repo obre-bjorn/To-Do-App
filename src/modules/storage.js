@@ -1,5 +1,5 @@
 import { ToDoList } from './toDoList'
-import { addProject } from './UI';
+import { addProject, displayTask } from './UI';
 
 function storageAvailable(type) {
     let storage;
@@ -63,13 +63,17 @@ export function createStorage(data) {
                 }
             });
 
+
         }
         // console.log(data.getProjects())
-
+        
     } else {
         // Too bad, no localStorage for us
     }
-
+    
+    let today = document.querySelector('#project0')
+    console.log(today)
+    today.click()
 }
 
 
