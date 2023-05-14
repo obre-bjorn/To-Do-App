@@ -56,7 +56,6 @@ export function createStorage(data) {
                     let projects = data.getProjects()
 
                     let tasks = project.todoList
-                    console.log(tasks)
                     tasks.forEach(task=> {
                         projects[projects.length - 1].addTask(project.id,task.description,task.dueDate,true)
                     })

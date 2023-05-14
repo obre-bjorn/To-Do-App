@@ -22,7 +22,7 @@ export class ToDoList {
     }
 
     deleteProject() {
-
+        
     }
 
 
