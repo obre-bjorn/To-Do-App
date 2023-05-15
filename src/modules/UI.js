@@ -23,10 +23,11 @@ function addProject(id, title) {
         // let project = document.querySelector('.project')
 
     // projectContainer.appendChild(project)
-    const projectView = `<div id=${id} class="project">
-    <span>${title}</span>
-    <i class="fa-solid fa-trash delete-project"></i>
-    </div>`
+    const projectView = `
+                        <div id=${id} class="project">${title}
+                            <i class="fa-solid fa-trash delete-project"></i>
+                        </div>
+                        `
     projectContainer.insertAdjacentHTML('beforeend', projectView)
         // project.addEventListener('click', displayToDos)
 

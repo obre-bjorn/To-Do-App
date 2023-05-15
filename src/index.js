@@ -78,11 +78,12 @@ addTask.addEventListener('submit', function(e) {
 
 export function deleteProject(e){
     e.stopPropagation()
-    let projectData =  getItemById(e.target.parentElement,'project')
-    // console.log(projectData.id)
-    projectData.parentElement.removeChild(projectData)
+    let projElement = e.target.parentElement
+    let projectData =  getItemById(projElement,'project')
+    // projElement.parentElement.removeChild(e)
+    projElement.parentNode.removeChild(projElement)
+    console.log(e)
     list.deleteProject(projectData.projectData.id)
-    saveProject(list)
 }
 
 
