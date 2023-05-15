@@ -20,6 +20,11 @@ export class Project {
         }
     }
 
+    getTasks() {
+        return this.todoList
+    }
+
+
     addTask(projectId,description, dueDate,available) {
         let toDo = new ToDo(this.taskId,description, dueDate);
         this.todoList.push(toDo)
@@ -33,11 +38,10 @@ export class Project {
         
     }
 
-
-
-    getTasks() {
-        return this.todoList
+    deleteTask(){
+        
     }
+
 
 }
 

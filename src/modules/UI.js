@@ -2,7 +2,7 @@ import { getData } from "./storage";
 
 
 // ! TO CHANGE!!
-import { getItemById } from "../index";
+import { getItemById,deleteProject } from "../index";
 
 
 function eventListeners() {
@@ -31,10 +31,14 @@ function addProject(id, title) {
         // project.addEventListener('click', displayToDos)
 
     let project = projectContainer.querySelector(`#${id}`)
+    let deleteproject = projectContainer.querySelector(`#${id}>.delete-project`)
     project.addEventListener('click', displayTask)
+    deleteproject.addEventListener('click',deleteProject)
         // }
         // console.log(project)
 }
+
+
 
 
 function addTask(id, taskname, duedate, important) {

@@ -1,4 +1,4 @@
-import { createStorage } from "./modules/storage.js";
+import { createStorage,saveProject } from "./modules/storage.js";
 import { ToDoList } from "./modules/toDoList.js";
 import { addProject as ad } from "./modules/UI.js";
 
@@ -76,6 +76,14 @@ addTask.addEventListener('submit', function(e) {
 
 })
 
+export function deleteProject(e){
+    e.stopPropagation()
+    let projectData =  getItemById(e.target.parentElement,'project')
+    // console.log(projectData.id)
+    projectData.parentElement.removeChild(projectData)
+    list.deleteProject(projectData.projectData.id)
+    saveProject(list)
+}
 
 
 
