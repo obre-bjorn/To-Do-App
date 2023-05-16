@@ -7,7 +7,7 @@ export class Project {
     constructor(id, title) {
         this.id = id
         this.title = title
-        this.todoList = []
+        this.tasks = []
         this.taskId = 0
     }
 
@@ -16,18 +16,18 @@ export class Project {
         return {
             id: this.id,
             title: this.title,
-            tasks: this.todoList
+            tasks: this.tasks
         }
     }
 
     getTasks() {
-        return this.todoList
+        return this.tasks
     }
 
 
     addTask(projectId,description, dueDate,available) {
         let toDo = new ToDo(this.taskId,description, dueDate);
-        this.todoList.push(toDo)
+        this.tasks.push(toDo)
         
         if(!available){
             addTaskUI(`task${this.taskId}`, description, dueDate)
@@ -38,8 +38,10 @@ export class Project {
         
     }
 
-    deleteTask(){
-        
+    deleteTask(id){
+      let taskIndex = this.tasks.findIndex(task => task.id == id)
+      this.tasks.splice(taskIndex,1)
+        console.log(this.tasks)
     }
 
 

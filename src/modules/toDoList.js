@@ -25,9 +25,7 @@ export class ToDoList {
         let projectIndex = this.projects.findIndex(project => project.id == id)
         this.projects.splice(projectIndex,1)
         delProjFromStorage(id)
-        console.log(this.projects)
 
-        
     }
 
 
