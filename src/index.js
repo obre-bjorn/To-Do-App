@@ -85,10 +85,23 @@ export function deleteProject(e){
     list.deleteProject(projectData.projectData.id)
 }
 
+
 export function deleteTask(e){
     e.stopPropagation()
+
+    //^ GET PROJECT TO DELETE FROM
+    let getProject = document.querySelector('.project.active')
+    let projectData = getItemById(getProject,'project')
+
+    //^ GET TASK TO BE DELETED
     let taskElement = e.target.parentElement
-    let taskData = getItemById(taskElement,'task')
+    let taskId = getItemById(taskElement,'task')
+
+    taskElement.parentNode.removeChild(taskElement)
+    list.getProject(projectData.id).deleteTask(taskId)
+    console.log(list)
+    
+
 }
 
 
@@ -109,10 +122,8 @@ export function getItemById(element, item) {
         let projectData = data.find(proj => proj.id === parseInt(projectId))
         return { id: projectId, projectData: projectData }
     } else if(item === "task"){
-        let projectId = element.id.split('project')[1]
-        let data = list.getProjects()
-        let projectData = data.find(proj => proj.id === parseInt(projectId))
-        return { id: projectId, projectData: projectData }
+        let taskId = element.id.split('task')[1]
+        return taskId
     }
 
 

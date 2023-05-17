@@ -28,6 +28,10 @@ export class ToDoList {
 
     }
 
+    getProject(id){
+        return this.projects.find(project => project.id == id)
+    }
+
 
     getProjects() {
         return this.projects

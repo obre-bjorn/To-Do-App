@@ -2,7 +2,7 @@ import { getData } from "./storage";
 
 
 // ! TO CHANGE!!
-import { getItemById,deleteProject } from "../index";
+import { getItemById,deleteProject, deleteTask } from "../index";
 
 
 
@@ -50,11 +50,11 @@ function addTask(id, taskname, duedate, important) {
     let taskContainer = document.getElementById('task-container')
 
     let taskView = `<div id="${id}" class="task">
-    <input type="checkbox" name="completed" id="" class="task-done"><span class="task-name">${task.description}</span><i class="fa-solid fa-star important active"></i> <i class="fa-solid fa-trash delete-task"></i>                    </div>`
+    <input type="checkbox" name="completed" id="" class="task-done"><span class="task-name">${taskname}</span><i class="fa-solid fa-star important active"></i> <i class="fa-solid fa-trash delete-task"></i>                    </div>`
     taskContainer.insertAdjacentHTML('beforeend', taskView)
 
-    let deleteTask = document.querySelector(`#${id}`)
-    deleteTask.addEventListener('click',deleteTask)
+    let deleteTaskBtn = document.querySelector(`#${id}`)
+    deleteTaskBtn.addEventListener('click',deleteTask)
 
 }
 
