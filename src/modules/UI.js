@@ -5,9 +5,13 @@ import { getData } from "./storage";
 import { getItemById,deleteProject } from "../index";
 
 
+
+
 function eventListeners() {
 
 }
+
+
 
 
 function clearContainer(container) {
@@ -46,11 +50,16 @@ function addTask(id, taskname, duedate, important) {
     let taskContainer = document.getElementById('task-container')
 
     let taskView = `<div id="${id}" class="task">
-                        <input type="checkbox" name="completed" id="" class="task-done"><span class="task-name">${taskname}</span><i class="fa-solid fa-star important active"></i>
-                    </div>`
+    <input type="checkbox" name="completed" id="" class="task-done"><span class="task-name">${task.description}</span><i class="fa-solid fa-star important active"></i> <i class="fa-solid fa-trash delete-task"></i>                    </div>`
     taskContainer.insertAdjacentHTML('beforeend', taskView)
 
+    let deleteTask = document.querySelector(`#${id}`)
+    deleteTask.addEventListener('click',deleteTask)
+
 }
+
+
+
 
 function displayTasks(element) {
     //Set active Button
@@ -82,8 +91,8 @@ function displayTasks(element) {
                 taskContainer.insertAdjacentHTML("beforeend", noTasksHTML)
             } else {
                 tasks.forEach((task) =>{
-                    let taskHTML = `<div id="${task.id}" class="task">
-                                <input type="checkbox" name="completed" id="" class="task-done"><span class="task-name">${task.description}</span><i class="fa-solid fa-star important active"></i>
+                    let taskHTML = `<div id= "task${task.id}" class="task">
+                                <input type="checkbox" name="completed" id="" class="task-done"><span class="task-name">${task.description}</span><i class="fa-solid fa-star important active"></i> <i class="fa-solid fa-trash delete-task"></i>
                             </div>`
                 taskContainer.insertAdjacentHTML("beforeend",taskHTML)})
             
@@ -91,6 +100,9 @@ function displayTasks(element) {
     
 
 }
+
+
+
 
 function setActiveTask(proj) {
     let projects = [...document.querySelectorAll('.project')]
