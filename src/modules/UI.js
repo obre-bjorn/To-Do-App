@@ -53,9 +53,13 @@ function addTask(id, taskname, duedate, important) {
     <input type="checkbox" name="completed" id="" class="task-done"><span class="task-name">${taskname}</span><i class="fa-solid fa-star important active"></i> <i class="fa-solid fa-trash delete-task"></i>                    </div>`
     taskContainer.insertAdjacentHTML('beforeend', taskView)
 
-    let deleteTaskBtn = document.querySelector(`#${id}`)
+    let deleteTaskBtn = document.querySelector(`#${id}>.delete-task`)
     deleteTaskBtn.addEventListener('click',deleteTask)
 
+    let completeTask = document.querySelector(`#${id}>input[type="checkbox"]`)
+    completeTask.addEventListener('checked',(e)=>{
+        console.log(e)
+    })
 }
 
 
@@ -94,8 +98,19 @@ function displayTasks(element) {
                     let taskHTML = `<div id= "task${task.id}" class="task">
                                 <input type="checkbox" name="completed" id="" class="task-done"><span class="task-name">${task.description}</span><i class="fa-solid fa-star important active"></i> <i class="fa-solid fa-trash delete-task"></i>
                             </div>`
-                taskContainer.insertAdjacentHTML("beforeend",taskHTML)})
-            
+                taskContainer.insertAdjacentHTML("beforeend",taskHTML)
+
+                // Delete task
+                let deleteTaskBtn = document.querySelector(`#task${task.id}>.delete-task`)
+                deleteTaskBtn.addEventListener('click',deleteTask)
+
+                // Complete Task
+                let completeTask = document.querySelector(`#task${task.id}>input[type="checkbox"]`)
+                completeTask.addEventListener('change',(e)=>{
+                   let taskName = document.querySelector(`#task${task.id}>.task-name`)
+                   taskName.classList.toggle('done')
+                })
+            })
             }
     
 
