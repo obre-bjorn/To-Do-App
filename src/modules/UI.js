@@ -96,19 +96,29 @@ function displayTasks(element) {
             } else {
                 tasks.forEach((task) =>{
                     let taskHTML = `<div id= "task${task.id}" class="task">
-                                <input type="checkbox" name="completed" id="" class="task-done"><span class="task-name">${task.description}</span><i class="fa-solid fa-star important active"></i> <i class="fa-solid fa-trash delete-task"></i>
+                                <input type="checkbox" name="completed" id="" class="task-done"><span class="task-name">${task.description}</span><i class="fa-solid fa-star important"></i> <i class="fa-solid fa-trash delete-task"></i>
                             </div>`
                 taskContainer.insertAdjacentHTML("beforeend",taskHTML)
 
-                // Delete task
+                // ^ Delete task
                 let deleteTaskBtn = document.querySelector(`#task${task.id}>.delete-task`)
                 deleteTaskBtn.addEventListener('click',deleteTask)
 
-                // Complete Task
+                // ^ Complete Task
                 let completeTask = document.querySelector(`#task${task.id}>input[type="checkbox"]`)
                 completeTask.addEventListener('change',(e)=>{
+
+                    // ! CREATE FUNCTION FOR TASK COMPLETE
+
                    let taskName = document.querySelector(`#task${task.id}>.task-name`)
                    taskName.classList.toggle('done')
+                })
+
+                // ^ Important Task
+                let setImportantTask = document.querySelector(`#task${task.id}>.important`)
+
+                setImportantTask.addEventListener('click',(e)=> {
+                    setImportantTask.classList.toggle('active')
                 })
             })
             }
