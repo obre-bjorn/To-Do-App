@@ -130,6 +130,7 @@ body {
     /* justify-content: space-evenly; */
     align-items: center;
     gap: 1rem;
+
 }
 
 #add-task {
@@ -158,6 +159,13 @@ input[type=checkbox] {
     font-size: 1.5rem;
     font-family: sans-serif;
     color: #101b1bce;
+
+}
+
+.task-name.done{
+    color: rgba(39, 44, 44, 0.33);
+    text-decoration: line-through;
+
 }
 
 .important {
@@ -173,6 +181,7 @@ input[type=checkbox] {
 .delete-task{
     color: red;
     font-size: 1.5rem;
+    cursor: pointer;
 }
 
 .overlay {
