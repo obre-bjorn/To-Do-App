@@ -118,7 +118,7 @@ function displayTasks(element) {
                 let setImportantTask = document.querySelector(`#task${task.id}>.important`)
 
                 setImportantTask.addEventListener('click',(e)=> {
-                    setImportantTask.classList.toggle('active')
+                setImportantTask.classList.toggle('active')
                 })
             })
             }

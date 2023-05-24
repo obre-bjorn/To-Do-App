@@ -52,10 +52,11 @@ export function createStorage(data) {
                 // console.log(storage)
             storage.forEach(project => {
                 data.addProject(project.title, true)
-                if(project.todoList.length){
+                console.log(project)
+                if(project.tasks.length){
                     let projects = data.getProjects()
 
-                    let tasks = project.todoList
+                    let tasks = project.tasks
                     tasks.forEach(task=> {
                         projects[projects.length - 1].addTask(project.id,task.description,task.dueDate,true)
                     })
@@ -108,7 +109,8 @@ export function deleteProject(id){
 
 export function saveTask(projectId, task) {
     let oldData = getData()
-    oldData[projectId].todoList.push(task)
+    console.log(oldData)
+    oldData[projectId].tasks.push(task)
     localStorage.setItem('toDoList', JSON.stringify(oldData))
 }
 
