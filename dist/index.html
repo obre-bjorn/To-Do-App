@@ -53,11 +53,17 @@
                 <input type="date" name="duedate" id="due-date">
             </div>
 
-
-            <div class="label-checkbox">
-                <label for="important">Important:</label>
-                <input type="checkbox" name="important" id="important" value="true">
+            <div class="label">
+                <label for="priority">Priority:</label>
             </div>
+            <div class="input">
+                <select name="priority" id="select-priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+        
             <div class="form-control">
                 <input type="submit" value="Submit">
                 <input id="cancel" type="button" value="Cancel">

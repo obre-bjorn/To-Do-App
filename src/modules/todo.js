@@ -1,10 +1,11 @@
 export default class ToDo {
-    constructor(id,description, dueDate, important = false, completed = false) {
+    constructor(id,title,description, dueDate, priority, completed = false) {
         this.id = id
+        this.title = title
         this.description = description
         this.dueDate = new Date(dueDate)
+        this.priority = priority
         this.completed = completed
-        this.important = important
     }
 
     editDescription(description) {
