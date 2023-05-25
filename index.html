@@ -38,6 +38,7 @@
         <form action="" id="add-task-form">
             <h3 class="title">Add task</h3>
 
+            <!--* Task title -->
             <div class="label">
                 <label for="taskname">Task:</label>
             </div>
@@ -45,7 +46,16 @@
                 <input type="text" name="taskname" placeholder="Enter Task" id="taskname" required>
             </div>
 
+            <!--* Task Description -->
+            <div class="label">
+                <label for="taskname">Task:</label>
+            </div>
+            <div class="input">
+                <textarea name="taskname" id="description" cols="30" rows="10" placeholder="Enter task Descriprion...."></textarea>
+            </div>
 
+
+            <!-- * Task Due date -->
             <div class="label">
                 <label for="duedate">Due Date:</label>
             </div>
@@ -53,17 +63,20 @@
                 <input type="date" name="duedate" id="due-date">
             </div>
 
+            <!--* Task Priority  -->
             <div class="label">
                 <label for="priority">Priority:</label>
             </div>
             <div class="input">
                 <select name="priority" id="select-priority">
-                    <option value="low">Low</option>
-                    <option value="medium">Medium</option>
-                    <option value="high">High</option>
+                    <option value="low" id="low" class="option">Low</option>
+                    <option value="medium" id="medium" class="option">Medium</option>
+                    <option value="high" id="high" class="option">High</option>
                 </select>
             </div>
-        
+            
+
+            <!--* Add task submision -->
             <div class="form-control">
                 <input type="submit" value="Submit">
                 <input id="cancel" type="button" value="Cancel">
