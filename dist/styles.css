@@ -188,7 +188,7 @@ input[type=checkbox] {
     position: absolute;
     width: 100vw;
     height: 100vh;
-    display: none;
+    /* display: none; */
     top: 0;
     align-items: center;
     justify-content: center;
@@ -203,7 +203,7 @@ input[type=checkbox] {
     height: 60vh;
     width: 40vw;
     background-color: #101b1bce;
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 5rem;
     padding-left: 6rem;
     border-radius: 2rem;
@@ -220,7 +220,21 @@ input[type=checkbox] {
     width: 100%;
     margin-bottom: 2rem;
     padding: 1rem;
-    font-size: 1rem;
+    font-size: .8rem;
+}
+.option{
+    font-size: .8rem;
+}
+#low{
+    color: green;
+}
+
+#medium{
+    color: orange;
+}
+
+#high{
+    color: red;
 }
 
 label {

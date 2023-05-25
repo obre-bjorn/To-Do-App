@@ -25,8 +25,8 @@ export class Project {
     }
 
 
-    addTask(projectId,description, dueDate,available) {
-        let toDo = new ToDo(this.taskId,description, dueDate);
+    addTask(projectId,title,description,priority, dueDate,available) {
+        let toDo = new ToDo(this.taskId,title,description, dueDate,priority);
         this.tasks.push(toDo)
         
         if(!available){
