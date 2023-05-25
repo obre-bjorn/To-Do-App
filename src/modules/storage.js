@@ -58,7 +58,7 @@ export function createStorage(data) {
 
                     let tasks = project.tasks
                     tasks.forEach(task=> {
-                        projects[projects.length - 1].addTask(project.id,task.description,task.dueDate,true)
+                        projects[projects.length - 1].addTask(project.id,task.title,task.description,task.priority,task.dueDate,true)
                     })
                 }
             });

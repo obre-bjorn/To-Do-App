@@ -188,7 +188,7 @@ input[type=checkbox] {
     position: absolute;
     width: 100vw;
     height: 100vh;
-    /* display: none; */
+    display: none;
     top: 0;
     align-items: center;
     justify-content: center;
@@ -216,7 +216,7 @@ input[type=checkbox] {
     text-align: center;
 }
 
-.input>input,.input>#select-priority {
+.input>input,.input>#select-priority,textarea{
     width: 100%;
     margin-bottom: 2rem;
     padding: 1rem;
