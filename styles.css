@@ -123,14 +123,29 @@ body {
 .task {
     margin-top: 2rem;
     width: 80%;
-    text-align: center;
+    /* text-align: center; */
     background-color: cadetblue;
-    padding: 2rem;
     display: flex;
     /* justify-content: space-evenly; */
+    flex-direction: column;
+    padding: 2rem;
+    
+}
+.main-detail{
+    display: flex;
     align-items: center;
     gap: 1rem;
+    padding: 2rem;
+    
+}
 
+.details{
+    display:none;
+   
+}
+.details.active{
+    display: flex;
+    flex-direction: column;
 }
 
 #add-task {
