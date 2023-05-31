@@ -99,7 +99,7 @@ export function deleteTask(e){
     let projectData = getItemById(getProject,'project')
 
     //^ GET TASK TO BE DELETED
-    let taskElement = e.target.parentElement
+    let taskElement = e.target.parentElement.parentElement
     let taskId = getItemById(taskElement,'task')
 
     taskElement.parentNode.removeChild(taskElement)

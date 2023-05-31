@@ -8,8 +8,13 @@ export default class ToDo {
         this.completed = completed
     }
 
-    editDescription(description) {
+    editDescription(title,description,dueDate,priority,completed) {
+        this.title = title
         this.description = description
-    }
+        this.dueDate = new Date(dueDate)
+        this.priority = priority
+        this.completed = completed
 
+    
+    }
 }

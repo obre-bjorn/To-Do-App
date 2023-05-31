@@ -107,6 +107,42 @@ function displayTasks(element) {
                                     <p id="priority">Priority: ${task.priority}</p>
                                     <p id="description">Description:${task.description}</p>
                                 </div>
+                                <div class="edit-task">
+                                    <form>
+                                        <div class="edit-label">
+                                            <label for="edit-taskname">Task</label>
+                                        </div>
+                                        <div class="edit-input">
+                                            <input id="edit-taskname" type="text">
+                                        </div>
+                                        <div class="edit-label">
+                                            <label for="edit-description">Description</label>
+                                        </div>
+                                        <div class="edit-input">
+                                            <textarea id="edit-description" cols="30" row="10"></textarea>
+                                        </div>
+                                        <div class="edit-label">
+                                            <label for="edit-duedate">Due Date:</label>
+                                        </div>
+                                        <div class="edit-input">
+                                            <input type="edit-date" name="duedate" id="due-date">
+                                        </div>
+                                        <div class="edit-label">
+                                            <label for="priority">Priority:</label>
+                                        </div>
+                                        <div class="input">
+                                            <select name="priority" id="select-priority">
+                                                <option value="low" id="low" class="option">Low</option>
+                                                <option value="medium" id="medium" class="option">Medium</option>
+                                                <option value="high" id="high" class="option">High</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-control">
+                                            <input type="submit" value="Submit">
+                                            <input id="cancel" type="button" value="Cancel">
+                                        </div>
+                                    </form>
+                                </div>
                         </div>`
                 taskContainer.insertAdjacentHTML("beforeend",taskHTML)
                 
