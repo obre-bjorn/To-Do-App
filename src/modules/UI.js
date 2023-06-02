@@ -111,24 +111,35 @@ function displayTasks(element) {
                                 </div>
                                 <div id="edit-task${task.id}" class="edit-task-form">
                                     <form id="edit-form">
+                                     <div class="edit-input">
                                         <div class="edit-label">
                                             <label for="edit-taskname${task.id}">Task</label>
                                         </div>
                                         <div class="edit-input">
                                             <input id="edit-taskname${task.id}" type="text">
                                         </div>
+                                     </div>
+
+                                    <div class="edit-input">
                                         <div class="edit-label">
                                             <label for="edit-description${task.id}">Description</label>
                                         </div>
                                         <div class="edit-input">
                                             <textarea id="edit-description${task.id}" cols="30" row="10"></textarea>
                                         </div>
+                                    </div>
+
+                                    <div class="edit-input">
                                         <div class="edit-label">
                                             <label for="edit-duedate${task.id}">Due Date:</label>
                                         </div>
+
                                         <div class="edit-input">
                                             <input type="date" name="duedate" id="edit-duedate${task.id}">
                                         </div>
+                                        </div>
+
+                                        <div class="edit-input">
                                         <div class="edit-label">
                                             <label for="priority${task.id}">Priority:</label>
                                         </div>
@@ -139,9 +150,14 @@ function displayTasks(element) {
                                                 <option value="high" id="high" class="option">High</option>
                                             </select>
                                         </div>
-                                        <div class="edit-form-control">
-                                            <input type="submit" value="Submit">
-                                            <input id="cancel" type="button" value="Cancel">
+                                        </div>
+
+                                        <div class=edit-input>
+                    
+                                            <div class="edit-form-control">
+                                                <input type="submit" value="Submit">
+                                                <input id="cancel" type="button" value="Cancel">
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
