@@ -176,11 +176,32 @@ function displayTasks(element) {
 
                 // ^ Edit task
                 let editTask = document.querySelector(`#task${task.id}>.main-detail>.edit-task`)
+                let taskEditform = document.querySelector(`#edit-task${task.id}`)
+
+                // Input values 
+                let editTaskNameInput = document.querySelector(`#edit-taskname${task.id}`)
+                let editDescriprtionInput = document.querySelector(`#edit-description${task.id}`)
+                let editDateInput = document.querySelector(`#edit-duedate${task.id}`)
+                let editPriority = document.querySelector(`#priority${task.id}`)
+
+                editTaskNameInput.value = task.title
+                editDescriprtionInput.value = task.description
+
+                console.log(task.dueDate)
+                editDateInput.value = task.dueDate.toISOString().split("T")[0];
+                editPriority.value = task.priority
+
+
+
                 editTask.addEventListener('click', function(e){
                     e.stopPropagation()
-                    let taskEditform = document.querySelector(`#edit-task${task.id}`)
                     console.log(taskEditform.classList)
                     taskEditform.classList.toggle('active')
+                })
+
+                taskEditform.addEventListener('submit',function(e){
+
+                    taskEditform.classList.remove('active')
                 })
 
                 // ^ Delete task
