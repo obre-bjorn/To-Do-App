@@ -146,8 +146,8 @@ body {
     /* justify-content: space-evenly; */
     flex-direction: column;
     padding: 2rem;
-    
 }
+
 .main-detail{
     display: flex;
     align-items: center;
@@ -200,7 +200,7 @@ input[type=checkbox] {
 
 }
 
-.edit {
+.edit-task {
     font-size: 1.5rem;
     color: white;
     cursor: pointer;
@@ -216,6 +216,8 @@ input[type=checkbox] {
     cursor: pointer;
 }
 
+/** Edit task Form  */
+
 .edit-task-form {
     display: none;
 
@@ -223,7 +225,32 @@ input[type=checkbox] {
 
 .edit-task-form.active{
     display: block;
+    
 }
+
+
+#edit-form{
+    display: flex;
+    flex-wrap: wrap;
+     /* align-items: ; */
+    justify-content: space-between; 
+    /* text-align: center;  */
+}
+
+#edit-form>.edit-input{
+    flex-basis: 40%;
+
+}
+#edit-form>.edit-input>div>input{
+    width: 100%;
+}
+
+
+
+
+
+
+
 .overlay {
     position: absolute;
     width: 100vw;
