@@ -100,44 +100,46 @@ function displayTasks(element) {
                                 <div class="main-detail">
                                     <input type="checkbox" name="completed" id="" class="task-done">
                                     <span class="task-name">${task.title}</span>
-                                    <i class="fa-solid fa-star important"></i>
+                                    
+                                    <i class="fa fa-pencil-square-o edit-task" aria-hidden="true"></i>
                                     <i class="fa-solid fa-trash delete-task"></i>
+
                                 </div>
                                 <div class="details">
                                     <p id="priority">Priority: ${task.priority}</p>
                                     <p id="description">Description:${task.description}</p>
                                 </div>
-                                <div class="edit-task">
-                                    <form>
+                                <div id="edit-task${task.id}" class="edit-task-form">
+                                    <form id="edit-form">
                                         <div class="edit-label">
-                                            <label for="edit-taskname">Task</label>
+                                            <label for="edit-taskname${task.id}">Task</label>
                                         </div>
                                         <div class="edit-input">
-                                            <input id="edit-taskname" type="text">
+                                            <input id="edit-taskname${task.id}" type="text">
                                         </div>
                                         <div class="edit-label">
-                                            <label for="edit-description">Description</label>
+                                            <label for="edit-description${task.id}">Description</label>
                                         </div>
                                         <div class="edit-input">
-                                            <textarea id="edit-description" cols="30" row="10"></textarea>
+                                            <textarea id="edit-description${task.id}" cols="30" row="10"></textarea>
                                         </div>
                                         <div class="edit-label">
-                                            <label for="edit-duedate">Due Date:</label>
+                                            <label for="edit-duedate${task.id}">Due Date:</label>
                                         </div>
                                         <div class="edit-input">
-                                            <input type="edit-date" name="duedate" id="due-date">
+                                            <input type="date" name="duedate" id="edit-duedate${task.id}">
                                         </div>
                                         <div class="edit-label">
-                                            <label for="priority">Priority:</label>
+                                            <label for="priority${task.id}">Priority:</label>
                                         </div>
                                         <div class="input">
-                                            <select name="priority" id="select-priority">
+                                            <select name="priority" id="priority${task.id}">
                                                 <option value="low" id="low" class="option">Low</option>
                                                 <option value="medium" id="medium" class="option">Medium</option>
                                                 <option value="high" id="high" class="option">High</option>
                                             </select>
                                         </div>
-                                        <div class="form-control">
+                                        <div class="edit-form-control">
                                             <input type="submit" value="Submit">
                                             <input id="cancel" type="button" value="Cancel">
                                         </div>
@@ -155,6 +157,15 @@ function displayTasks(element) {
                 })
 
             
+
+                // ^ Edit task
+                let editTask = document.querySelector(`#task${task.id}>.main-detail>.edit-task`)
+                editTask.addEventListener('click', function(e){
+                    e.stopPropagation()
+                    let taskEditform = document.querySelector(`#edit-task${task.id}`)
+                    console.log(taskEditform.classList)
+                    taskEditform.classList.toggle('active')
+                })
 
                 // ^ Delete task
                 let deleteTaskBtn = document.querySelector(`#task${task.id}>.main-detail>.delete-task`)
