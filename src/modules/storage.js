@@ -115,7 +115,11 @@ export function saveTask(projectId, task) {
 }
 
 
-
+export function saveEditTask(projectId,taskId,task){
+    let data = getData()
+    data[projectId].tasks[taskId] = task
+    localStorage.setItem('toDoList',JSON.stringify(data))
+}
 
 export function getData() {
     let data = JSON.parse(localStorage.getItem("toDoList"))

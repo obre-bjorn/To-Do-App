@@ -15,7 +15,7 @@ export default class ToDo {
         this.priority = priority
         this.completed = completed
 
-    
+        return this
     }
 
     setCompleted(){

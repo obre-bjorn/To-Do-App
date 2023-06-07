@@ -207,6 +207,11 @@ function displayTasks(element) {
                 let taskEditForm = taskEditform.querySelector(`form`) 
 
                 taskEditForm.addEventListener('submit',function(e){
+                    let task_name = document.querySelector(`#taskname${task.id}`)
+                    let task_description = document.querySelector(`#description${task.id}`)
+                    let task_priority = document.querySelector(`#priority${task.id}`)
+                    
+
                     e.preventDefault()
 
                     // ^ project to edit from
@@ -222,7 +227,11 @@ function displayTasks(element) {
                     
                     let data = getList()
 
-                    data.getProject(projectData.id).editTask(task.id,taskDataObject)
+                    data.getProject(projectData.id).editTask(projectData.id,task.id,taskDataObject)
+
+                    task_name.textContent = taskDataObject.taskname
+                    task_description.textContent = taskDataObject.description
+                    task_priority.textContent = taskDataObject.priority
 
                     // console.log(taskDataObject)
                     // & Get task Id
