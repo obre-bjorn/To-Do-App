@@ -45,7 +45,7 @@ addTaskBtn.addEventListener('click', function(e) {
 
     overlay.classList.add('active')
 })
-let cancelOverlay = document.querySelector('#cancel')
+let cancelOverlay = document.querySelector('#cancel_add_task')
 
 cancelOverlay.addEventListener('click', function(e) {
     let overlay = document.querySelector('.overlay')
@@ -60,7 +60,7 @@ let addTask = document.getElementById("add-task-form")
 addTask.addEventListener('submit', function(e) {
     e.preventDefault()
 
-
+    let overlay = document.querySelector('.overlay')
     // ^ Get Form data
 
     const taskData = new FormData(addTask)
@@ -77,6 +77,7 @@ addTask.addEventListener('submit', function(e) {
         )
 
     addTask.reset()
+    overlay.classList.remove('active')
 
 
 })

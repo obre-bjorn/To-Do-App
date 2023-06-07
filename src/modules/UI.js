@@ -145,7 +145,7 @@ function displayTasks(element) {
                                             <label for="priority${task.id}">Priority:</label>
                                         </div>
                                         <div class="input">
-                                            <select name="priority" id="priority${task.id}">
+                                            <select name="priority" id="select-priority${task.id}">
                                                 <option value="low" id="low" class="option">Low</option>
                                                 <option value="medium" id="medium" class="option">Medium</option>
                                                 <option value="high" id="high" class="option">High</option>
@@ -178,20 +178,30 @@ function displayTasks(element) {
                 // ^ Edit task
                 let editTask = document.querySelector(`#task${task.id}>.main-detail>.edit-task`)
                 let taskEditform = document.querySelector(`#edit-task${task.id}`)
+            
 
                 // Input values 
                 let editTaskNameInput = document.querySelector(`#edit-taskname${task.id}`)
                 let editDescriprtionInput = document.querySelector(`#edit-description${task.id}`)
                 let editDateInput = document.querySelector(`#edit-duedate${task.id}`)
-                let editPriority = document.querySelector(`#priority${task.id}`)
+                let editPriority = document.querySelector(`#select-priority${task.id}`)
 
+                console.log(editPriority)
                 editTaskNameInput.value = task.title
+                
                 editDescriprtionInput.value = task.description
 
-                console.log(task.dueDate)
+                
                 editDateInput.value = task.dueDate.toISOString().split("T")[0];
-                editPriority.value = task.priority
 
+                let priorityOptions = editPriority.options;
+                for (let i = 0; i < priorityOptions.length; i++) {
+                    if (priorityOptions[i].value === task.priority) {
+                        priorityOptions[i].selected = true;
+                        break;
+                    }
+                }
+                // editPriority.value = task.priority
 
 
                 editTask.addEventListener('click', function(e){
