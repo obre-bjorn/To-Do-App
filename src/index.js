@@ -103,7 +103,7 @@ export function deleteTask(e){
     let taskId = getItemById(taskElement,'task')
 
     taskElement.parentNode.removeChild(taskElement)
-    list.getProject(projectData.id).deleteTask(taskId)
+    list.getProject(projectData.id).deleteTask(projectData.id,taskId)
     console.log(list)
     
 

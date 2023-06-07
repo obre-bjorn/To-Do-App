@@ -1,5 +1,5 @@
 import ToDo from "./todo.js";
-import { saveEditTask, saveProject, saveTask } from "./storage.js";
+import { saveEditTask, saveTask,deleteTask as deleteTaskStorage} from "./storage.js";
 import { addTask as addTaskUI } from "./UI.js";
 
 export class Project {
@@ -37,6 +37,7 @@ export class Project {
         this.taskId++
         
     }
+
     editTask(projectId,taskId, data){
         let taskIndex = this.tasks.findIndex(task => task.id == taskId)
         // this.tasks[taskIndex].editTask()
@@ -47,10 +48,11 @@ export class Project {
         saveEditTask(projectId,taskId,task)
     }
 
-    deleteTask(id){
-      let taskIndex = this.tasks.findIndex(task => task.id == id)
-      this.tasks.splice(taskIndex,1)
+    deleteTask(projectId,taskId){
+        let taskIndex = this.tasks.findIndex(task => task.id == taskId)
+        this.tasks.splice(taskIndex,1)
         console.log(this.tasks)
+        deleteTaskStorage(projectId,taskId)
     }
 
 

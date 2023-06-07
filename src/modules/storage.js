@@ -120,6 +120,12 @@ export function saveEditTask(projectId,taskId,task){
     data[projectId].tasks[taskId] = task
     localStorage.setItem('toDoList',JSON.stringify(data))
 }
+export function deleteTask(projectId, taskId){
+    let data = getData()
+    data[projectId].tasks.splice(taskId,1)
+    localStorage.setItem('toDoList',JSON.stringify(data))
+
+}
 
 export function getData() {
     let data = JSON.parse(localStorage.getItem("toDoList"))
