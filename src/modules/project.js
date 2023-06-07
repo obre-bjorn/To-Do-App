@@ -37,6 +37,12 @@ export class Project {
         this.taskId++
         
     }
+    editTask(id, data){
+        let taskIndex = this.tasks.findIndex(task => task.id == id)
+        // this.tasks[taskIndex].editTask()
+        console.log(this.tasks[taskIndex])
+        console.log(data)
+    }
 
     deleteTask(id){
       let taskIndex = this.tasks.findIndex(task => task.id == id)

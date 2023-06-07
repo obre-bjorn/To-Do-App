@@ -1,9 +1,10 @@
 import { getData } from "./storage";
 
 
+
 // ! TO CHANGE!!
 import { getItemById,deleteProject, deleteTask } from "../index";
-
+import { getList } from "../index";
 
 
 
@@ -99,15 +100,15 @@ function displayTasks(element) {
                         <div id= "task${task.id}" class="task">
                                 <div class="main-detail">
                                     <input type="checkbox" name="completed" id="" class="task-done">
-                                    <span class="task-name">${task.title}</span>
+                                    <span class="task-name" id=taskname${task.id}>${task.title}</span>
                                     
                                     <i class="fa fa-pencil-square-o edit-task" aria-hidden="true"></i>
                                     <i class="fa-solid fa-trash delete-task"></i>
 
                                 </div>
                                 <div class="details">
-                                    <p id="priority">Priority: ${task.priority}</p>
-                                    <p id="description">Description:${task.description}</p>
+                                    <p id="priority${task.id}">Priority: ${task.priority}</p>
+                                    <p id="description${task.id}">Description:${task.description}</p>
                                 </div>
                                 <div id="edit-task${task.id}" class="edit-task-form">
                                     <form id="edit-form">
@@ -116,7 +117,7 @@ function displayTasks(element) {
                                             <label for="edit-taskname${task.id}">Task</label>
                                         </div>
                                         <div class="edit-input">
-                                            <input id="edit-taskname${task.id}" type="text">
+                                            <input id="edit-taskname${task.id}" type="text" name="taskname">
                                         </div>
                                      </div>
 
@@ -125,7 +126,7 @@ function displayTasks(element) {
                                             <label for="edit-description${task.id}">Description</label>
                                         </div>
                                         <div class="edit-input">
-                                            <textarea id="edit-description${task.id}" cols="30" row="10"></textarea>
+                                            <textarea id="edit-description${task.id}" name="description" cols="30" row="10"></textarea>
                                         </div>
                                     </div>
 
@@ -199,10 +200,40 @@ function displayTasks(element) {
                     taskEditform.classList.toggle('active')
                 })
 
-                taskEditform.addEventListener('submit',function(e){
+                // & Task form submision
+                taskEditform.addEventListener('click',(e)=>{
+                    e.stopPropagation()
+                })
+                let taskEditForm = taskEditform.querySelector(`form`) 
+
+                taskEditForm.addEventListener('submit',function(e){
+                    e.preventDefault()
+
+                    // ^ project to edit from
+                    let getProject = document.querySelector('.project.active')
+                    let projectData = getItemById(getProject,'project')
+                    let taskElement = e.target.parentElement
+                    console.log(taskElement)
+                    console.log(projectData.id);
+
+                    
+                    let taskFormData = new FormData(taskEditForm)
+                    let taskDataObject =  Object.fromEntries(taskFormData.entries())
+                    
+                    let data = getList()
+
+                    data.getProject(projectData.id).editTask(task.id,taskDataObject)
+
+                    // console.log(taskDataObject)
+                    // & Get task Id
+                    // console.log(task.id)
+                    
 
                     taskEditform.classList.remove('active')
+
                 })
+
+
 
                 // ^ Delete task
                 let deleteTaskBtn = document.querySelector(`#task${task.id}>.main-detail>.delete-task`)
@@ -210,18 +241,19 @@ function displayTasks(element) {
 
                 // ^ Complete Task
                 let completeTask = document.querySelector(`#task${task.id}>.main-detail>input[type="checkbox"]`)
-                completeTask.addEventListener('change',(e)=>{
+                completeTask.addEventListener('click',(e)=>{
 
                     // ! CREATE FUNCTION FOR TASK COMPLETE
-                
+                    
+                    let taskName = document.querySelector(`#task${task.id}>.main-detail>.task-name`)
+                    taskName.classList.toggle('done')
+                    e.stopPropagation()
 
-
-                   let taskName = document.querySelector(`#task${task.id}>.task-name`)
-                   taskName.classList.toggle('done')
                 })
 
                 
             })
+
             }
     
 

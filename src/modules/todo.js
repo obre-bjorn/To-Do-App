@@ -8,7 +8,7 @@ export default class ToDo {
         this.completed = completed
     }
 
-    editDescription(title,description,dueDate,priority,completed) {
+    editTask(title,description,dueDate,priority,completed) {
         this.title = title
         this.description = description
         this.dueDate = new Date(dueDate)
@@ -16,5 +16,10 @@ export default class ToDo {
         this.completed = completed
 
     
+    }
+
+    setCompleted(){
+        this.completed = !this.completed
+        console.log(this)
     }
 }

@@ -110,6 +110,10 @@ export function deleteTask(e){
 }
 
 
+export function getList(){
+    return list
+}
+
 
 
 
