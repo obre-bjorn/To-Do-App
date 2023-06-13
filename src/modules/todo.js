@@ -1,3 +1,5 @@
+import { differenceInDays} from "date-fns"
+
 export default class ToDo {
     constructor(id,title,description, dueDate, priority, completed = false) {
         this.id = id
@@ -21,5 +23,11 @@ export default class ToDo {
     setCompleted(){
         this.completed = !this.completed
         console.log(this)
+    }
+    
+    remainingDays(){
+        let currentDate = new Date()
+        let date = (differenceInDays(this.dueDate,currentDate))
+        return date
     }
 }

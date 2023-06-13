@@ -238,7 +238,8 @@ function displayTasks(element) {
                     let data = getList()
 
                     data.getProject(projectData.id).editTask(projectData.id,task.id,taskDataObject)
-
+                    let todos = data.getProject(projectData.id).getTasks()
+                    console.log(todos[task.id].remainingDays())
                     task_name.textContent = taskDataObject.taskname
                     task_description.textContent = taskDataObject.description
                     task_priority.textContent = taskDataObject.priority
