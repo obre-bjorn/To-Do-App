@@ -1,4 +1,4 @@
-import { differenceInDays} from "date-fns"
+import { differenceInCalendarDays} from "date-fns"
 
 export default class ToDo {
     constructor(id,title,description, dueDate, priority, completed = false) {
@@ -27,7 +27,7 @@ export default class ToDo {
     
     remainingDays(){
         let currentDate = new Date()
-        let date = (differenceInDays(this.dueDate,currentDate))
+        let date = differenceInCalendarDays(this.dueDate,currentDate)
         return date
     }
 }

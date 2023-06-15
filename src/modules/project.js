@@ -30,7 +30,8 @@ export class Project {
         this.tasks.push(toDo)
         
         if(!available){
-            addTaskUI(`task${this.taskId}`, title, dueDate)
+            dueDate = new Date(dueDate)
+            addTaskUI(this.taskId, title, description,priority,dueDate)
             saveTask(projectId, toDo)
         }
 
