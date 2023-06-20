@@ -1,6 +1,6 @@
 import { createStorage,saveProject } from "./modules/storage.js";
 import { ToDoList } from "./modules/toDoList.js";
-import { addProject as ad } from "./modules/UI.js";
+import { addProject as ad,setActiveTask,clearContainer,TaskView } from "./modules/UI.js";
 
 
 let list = new ToDoList()
@@ -137,7 +137,40 @@ export function getItemById(element, item) {
     }
 
 
-
 }
+
+
+//  ^ Menu display
+let menu = [...document.querySelectorAll('.menu')]
+
+menu.forEach(button =>  { 
+    button.addEventListener('click',displayMenuTask)
+}
+
+ )
+
+
+ function displayMenuTask(element){
+    let taskContainer = document.getElementById('task-container')
+    let elementTarget = element.target
+    
+    // console.log(elementTarget.id)
+    if(elementTarget.id === "home"){
+        if (elementTarget.classList.contains('active')){
+            return 
+        };
+        setActiveTask(element)
+        clearContainer(taskContainer)
+        let todos = list.getAllTasks()
+        console.log(todos)
+        todos.forEach(todo=>{
+            console.log(todo)
+            TaskView(todo.id,todo.title,todo.description,todo.priority,todo.dueDate)
+        })
+
+    }     
+    
+ }
+
 
 // list.addProject("Laundry")

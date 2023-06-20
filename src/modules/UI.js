@@ -7,7 +7,7 @@ import { getItemById,deleteProject, deleteTask } from "../index";
 import { getList } from "../index";
 
 
-function TaskView(id, title, description,priority,dueDate,remainingDays){
+export function TaskView(id, title, description,priority,dueDate,remainingDays){
     let taskContainer = document.getElementById('task-container')
 
     let taskHtml = `
@@ -185,9 +185,6 @@ function TaskView(id, title, description,priority,dueDate,remainingDays){
 
                     })
 
-                
-
-    return
 }
 
 
@@ -245,6 +242,8 @@ function displayTasks(element) {
         return
     }
 
+
+            // & TO CHANGE ASAP!
             setActiveTask(element)
             clearContainer(taskContainer)
             let activeProject = document.querySelector('.project.active')
@@ -268,11 +267,7 @@ function displayTasks(element) {
 
 
 // display all Tasks
-let home = document.querySelector(`#home`)
 
-home.addEventListener('click',function(e){
-    setActiveTask(e)
-})
 
 
 
@@ -292,4 +287,4 @@ function setActiveTask(element) {
 
 
 
-export { eventListeners, displayTasks, addProject, addTask }
+export { eventListeners, displayTasks, addProject, addTask,setActiveTask,clearContainer }
