@@ -38,11 +38,32 @@ export class ToDoList {
     }
      
     getAllTasks(){
-        let tasks= []
+        let tasks = []
         this.projects.forEach(project=>{
             project.getTasks().forEach(task=>{
                 tasks.push(task)
             })
+        })
+        return tasks
+    }
+    getTodayTasks(){
+        let tasks = []
+        this.getAllTasks().forEach(task=>{
+            let remainingDays = task.remainingDays()
+            if(remainingDays === 0 ){
+                tasks.push(task)
+            }
+            
+        })
+        return tasks
+
+    }
+    getWeekTasks(week){
+        let tasks = []
+        this.getAllTasks().forEach(task=>{
+            if(task.taskWeek() === week && task.remainingDays() >= 0){
+                tasks.push(task)
+            }
         })
         return tasks
     }

@@ -1,6 +1,7 @@
 import { createStorage,saveProject } from "./modules/storage.js";
 import { ToDoList } from "./modules/toDoList.js";
 import { addProject as ad,setActiveTask,clearContainer,TaskView } from "./modules/UI.js";
+import { getISOWeekYear } from "date-fns";
 
 
 let list = new ToDoList()
@@ -168,7 +169,38 @@ menu.forEach(button =>  {
             TaskView(todo.id,todo.title,todo.description,todo.priority,todo.dueDate)
         })
 
-    }     
+    }
+     if(elementTarget.id === "today"){
+        if (elementTarget.classList.contains('active')){
+            return 
+        };
+        setActiveTask(element)
+        clearContainer(taskContainer)
+        let todos = list.getTodayTasks()
+        console.log(todos)
+        todos.forEach(todo=>{
+            console.log(todo)
+            TaskView(todo.id,todo.title,todo.description,todo.priority,todo.dueDate)
+        })
+
+    }
+    if(elementTarget.id === "thisweek"){
+        if (elementTarget.classList.contains('active')){
+            return 
+        };
+        let week = getISOWeekYear(new Date())
+        setActiveTask(element)
+        clearContainer(taskContainer)
+        let todos = list.getWeekTasks(week)
+        console.log(todos)
+        todos.forEach(todo=>{
+            console.log(todo)
+            TaskView(todo.id,todo.title,todo.description,todo.priority,todo.dueDate)
+        })
+
+
+    }
+
     
  }
 

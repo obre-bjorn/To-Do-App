@@ -1,4 +1,4 @@
-import { differenceInCalendarDays} from "date-fns"
+import { differenceInCalendarDays,getISOWeekYear} from "date-fns"
 
 export default class ToDo {
     constructor(id,title,description, dueDate, priority, completed = false) {
@@ -29,5 +29,8 @@ export default class ToDo {
         let currentDate = new Date()
         let date = differenceInCalendarDays(this.dueDate,currentDate)
         return date
+    }
+    taskWeek(){
+        return getISOWeekYear(this.dueDate)
     }
 }
