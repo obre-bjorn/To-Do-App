@@ -16,7 +16,7 @@ export class ToDoList {
         let projectData = project.getProjectInfo()
         domAddProject(`project${this.id}`, projectData.title)
         this.id++
-            if (!available) {
+        if (!available) {
                 saveProjToStorage(project)
             }
     }

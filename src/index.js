@@ -11,7 +11,7 @@ let list = new ToDoList()
 createStorage(list)
 
 
-let storage = JSON.parse(localStorage.getItem('toDoList'))
+// et storage = JSON.parse(localStorage.getItem('toDoList'))
     // console.log(storage)
 
 // let projectContainer = document.getElementById('projects')
@@ -34,7 +34,7 @@ addProj.addEventListener("submit", function(e) {
     e.preventDefault()
     let projectData = document.getElementById("projectName")
         // console.log(projectData);
-    list.addProject(projectData.value)
+    list.addProject(projectData.value,false)
     addProj.reset()
 })
 
@@ -170,7 +170,7 @@ menu.forEach(button =>  {
         setActiveTask(element)
         clearContainer(taskContainer)
         let todos = list.getAllTasks()
-        console.log(todos)
+        
         if (!todos.length) {
         
                     let noTasksHTML = ` <h3>No tasks available. <b>Add a Project </b> and Click the (+) button below to add tasks</h3>`
@@ -190,7 +190,7 @@ menu.forEach(button =>  {
         setActiveTask(element)
         clearContainer(taskContainer)
         let todos = list.getTodayTasks()
-        console.log(todos)
+        
         if (!todos.length) {
         
                     let noTasksHTML = ` <h3>No tasks available. <b>Add a Project </b> and  Click the (+) button below to add tasks</h3>`
@@ -214,7 +214,7 @@ menu.forEach(button =>  {
         setActiveTask(element)
         clearContainer(taskContainer)
         let todos = list.getWeekTasks(week)
-        console.log(todos)
+        
         if (!todos.length) {
                     let noTasksHTML = ` <h3>No tasks available. <b>Add a Project </b> and  Click the (+) button below to add tasks</h3>`
                     taskContainer.insertAdjacentHTML("beforeend", noTasksHTML)

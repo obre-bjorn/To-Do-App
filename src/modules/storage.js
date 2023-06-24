@@ -34,60 +34,67 @@ export function createStorage(data) {
 
     if (storageAvailable("localStorage")) {
         // Yippee! We can use localStorage awesomeness
+        let dataAvailability = checkStorageData()
+        if (dataAvailability !== 0) {
 
-        if (checkStorageData() === 0) {
-
-
-            localStorage.setItem("toDoList", JSON.stringify(data.getProjects()))
-
-                // data.addProject('Coding')
-                // data.getProjects()[1].addToDo('Learn and Practice HTML', new Date())
-
-
-        } else {
 
             let storage = JSON.parse(localStorage.getItem('toDoList'))
                 // console.log(storage)
+                console.log(storage)
             storage.forEach(project => {
                 data.addProject(project.title, true)
                 console.log(project)
+
                 if(project.tasks.length){
                     let projects = data.getProjects()
-
+    
                     let tasks = project.tasks
                     tasks.forEach(task=> {
                         projects[projects.length - 1].addTask(project.id,task.title,task.description,task.priority,task.dueDate,true)
                     })
                 }
             });
+            
 
+                // data.addProject('Coding')
+                // data.getProjects()[1].addToDo('Learn and Practice HTML', new Date())
+
+            
+        } else{
+
+            localStorage.setItem("toDoList", JSON.stringify(data.getProjects()))
+            console.log('Initial storage saved:', data.getProjects());
 
         }
-        // console.log(data.getProjects())
+
+       // localStorage.setItem("toDoList", JSON.stringify(data.getProjects()));
+
+
         
-    } else {
-        // Too bad, no localStorage for us
-    }
+        // console.log(data.getProjects())
+        document.addEventListener("DOMContentLoaded", function() {
+         
+            let today = document.querySelector('#home')
+            today.click()
+    });
+        
+    } 
     
    
-             document.addEventListener("DOMContentLoaded", function() {
-              
-                 let today = document.querySelector('#home')
-                 today.click()
-    });
 }
 
 
 export function checkStorageData() {
-    let data = localStorage.getItem('toDoList')
-
-    if (data.length > 0) {
-        let data = JSON.parse(localStorage.getItem('toDoList'))
-        let lastDataId = data[data.length - 1].id
-        return (lastDataId)
-    } else {
+    let data = JSON.parse(localStorage.getItem('toDoList'))
+    if (!data) {
         return 0;
     }
+         console.log(data)
+        let lastIndex = data.length-1
+        if (lastIndex >= 0 && lastIndex < data.length) {
+        let lastDataId = data[lastIndex].id
+        return (lastDataId)
+        }
 }
 
 
