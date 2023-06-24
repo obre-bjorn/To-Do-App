@@ -40,6 +40,9 @@ export function createStorage(data) {
 
             localStorage.setItem("toDoList", JSON.stringify(data.getProjects()))
 
+                // data.addProject('Coding')
+                // data.getProjects()[1].addToDo('Learn and Practice HTML', new Date())
+
 
         } else {
 
@@ -62,25 +65,23 @@ export function createStorage(data) {
         }
         // console.log(data.getProjects())
         
+    } else {
+        // Too bad, no localStorage for us
+    }
+    
+   
              document.addEventListener("DOMContentLoaded", function() {
               
                  let today = document.querySelector('#home')
                  today.click()
     });
-        
-    } else {
-        // Too bad, no localStorage for us
-    }
-    
-    let today = document.querySelector('#home')
-    today.click()
 }
 
 
 export function checkStorageData() {
     let data = localStorage.getItem('toDoList')
 
-    if (data) {
+    if (data.length > 0) {
         let data = JSON.parse(localStorage.getItem('toDoList'))
         let lastDataId = data[data.length - 1].id
         return (lastDataId)
