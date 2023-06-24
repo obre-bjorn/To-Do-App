@@ -80,6 +80,9 @@ body {
     margin-top: 2rem;
     overflow-y: auto
 }
+.days{
+    margin-bottom: 1.5rem;
+}
 
 .project {
     width: 100%;
