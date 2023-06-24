@@ -37,22 +37,27 @@ export function createStorage(data) {
 
             let storage = JSON.parse(localStorage.getItem('toDoList'))
                 // console.log(storage)
-            storage.forEach(project => {
-                data.addProject(project.title, true)
-                console.log(project)
-                if(project.tasks.length){
-                    let projects = data.getProjects()
 
-                    let tasks = project.tasks
-                    tasks.forEach(task=> {
-                        projects[projects.length - 1].addTask(project.id,task.title,task.description,task.priority,task.dueDate,true)
-                    })
-                }
-            });
+            if(storage.length){
+                
+                storage.forEach(project => {
+                    data.addProject(project.title, true)
+                    console.log(project)
+                    if(project.tasks.length){
+                        let projects = data.getProjects()
+    
+                        let tasks = project.tasks
+                        tasks.forEach(task=> {
+                            projects[projects.length - 1].addTask(project.id,task.title,task.description,task.priority,task.dueDate,true)
+                        })
+                    }
+                });
+            }
 
              document.addEventListener("DOMContentLoaded", function() {
+              
                  let today = document.querySelector('#home')
-                 today.click()      
+                 today.click()
     });     
 
         }
