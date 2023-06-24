@@ -187,8 +187,9 @@ menu.forEach(button =>  {
         let todos = list.getTodayTasks()
         console.log(todos)
         todos.forEach(todo=>{
-            console.log(todo)
-            TaskView(todo.id,todo.title,todo.description,todo.priority,todo.dueDate)
+           let projId = todo.projId 
+             todo = todo.taskdetail
+            TaskView(projId,todo.id,todo.title,todo.description,todo.priority,todo.dueDate)
         })
 
     }
@@ -202,8 +203,9 @@ menu.forEach(button =>  {
         let todos = list.getWeekTasks(week)
         console.log(todos)
         todos.forEach(todo=>{
-            console.log(todo)
-            TaskView(todo.id,todo.title,todo.description,todo.priority,todo.dueDate)
+            let projId = todo.projId 
+            todo = todo.taskdetail
+            TaskView(projId,todo.id,todo.title,todo.description,todo.priority,todo.dueDate)
         })
 
 

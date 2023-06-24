@@ -52,22 +52,32 @@ export class ToDoList {
     }
     getTodayTasks(){
         let tasks = []
-        this.getAllTasks().forEach(task=>{
-            let remainingDays = task.remainingDays()
-            if(remainingDays === 0 ){
-                tasks.push(task)
-            }
-            
+          this.projects.forEach(project=>{
+            project.getTasks().forEach(task=>{
+                let projectDetail = project.getProjectInfo() 
+                if(task.remainingDays() === 0){
+                tasks.push(
+                    {taskdetail:task,
+                        projId:projectDetail.id}
+                    )
+                }
+            })
         })
         return tasks
 
     }
     getWeekTasks(week){
         let tasks = []
-        this.getAllTasks().forEach(task=>{
-            if(task.taskWeek() === week && task.remainingDays() >= 0){
-                tasks.push(task)
-            }
+         this.projects.forEach(project=>{
+            project.getTasks().forEach(task=>{
+                let projectDetail = project.getProjectInfo() 
+                if(task.taskWeek() === week && task.remainingDays() >= 0){
+                tasks.push(
+                    {taskdetail:task,
+                        projId:projectDetail.id}
+                    )
+                }
+            })
         })
         return tasks
     }
@@ -85,3 +95,4 @@ export class ToDoList {
 //     })
 //     console.log('\n')
 // })
+
