@@ -171,11 +171,16 @@ menu.forEach(button =>  {
         clearContainer(taskContainer)
         let todos = list.getAllTasks()
         console.log(todos)
+        if (!todos.length) {
+        
+                    let noTasksHTML = ` <h3>No tasks available. <b>Add a Project </b> and Click the (+) button below to add tasks</h3>`
+                    taskContainer.insertAdjacentHTML("beforeend", noTasksHTML)
+                } else{
         todos.forEach(todo =>{
             let projId = todo.projId 
              todo = todo.taskdetail
             TaskView(projId,todo.id,todo.title,todo.description,todo.priority,todo.dueDate)
-        })
+        })}
 
     }
      if(elementTarget.id === "today"){
@@ -186,11 +191,19 @@ menu.forEach(button =>  {
         clearContainer(taskContainer)
         let todos = list.getTodayTasks()
         console.log(todos)
-        todos.forEach(todo=>{
-           let projId = todo.projId 
-             todo = todo.taskdetail
-            TaskView(projId,todo.id,todo.title,todo.description,todo.priority,todo.dueDate)
-        })
+        if (!todos.length) {
+        
+                    let noTasksHTML = ` <h3>No tasks available. <b>Add a Project </b> and  Click the (+) button below to add tasks</h3>`
+                    taskContainer.insertAdjacentHTML("beforeend", noTasksHTML)
+            } 
+        else{
+            
+            todos.forEach(todo=>{
+               let projId = todo.projId 
+                 todo = todo.taskdetail
+                TaskView(projId,todo.id,todo.title,todo.description,todo.priority,todo.dueDate)
+            })
+                }
 
     }
     if(elementTarget.id === "thisweek"){
@@ -202,11 +215,17 @@ menu.forEach(button =>  {
         clearContainer(taskContainer)
         let todos = list.getWeekTasks(week)
         console.log(todos)
-        todos.forEach(todo=>{
-            let projId = todo.projId 
-            todo = todo.taskdetail
-            TaskView(projId,todo.id,todo.title,todo.description,todo.priority,todo.dueDate)
-        })
+        if (!todos.length) {
+                    let noTasksHTML = ` <h3>No tasks available. <b>Add a Project </b> and  Click the (+) button below to add tasks</h3>`
+                    taskContainer.insertAdjacentHTML("beforeend", noTasksHTML)
+                } 
+        else{            
+                       todos.forEach(todo=>{
+                        let projId = todo.projId 
+                        todo = todo.taskdetail
+                        TaskView(projId,todo.id,todo.title,todo.description,todo.priority,todo.dueDate)
+                    })
+                }
 
 
     }

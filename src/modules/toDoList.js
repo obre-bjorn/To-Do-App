@@ -42,10 +42,11 @@ export class ToDoList {
         this.projects.forEach(project=>{
             project.getTasks().forEach(task=>{
                 let projectDetail = project.getProjectInfo() 
+                if(task.remainingDays() >= 0){
                 tasks.push(
                     {taskdetail:task,
                         projId:projectDetail.id}
-                    )
+                    )}
             })
         })
         return tasks
