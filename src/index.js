@@ -97,15 +97,20 @@ export function deleteTask(e){
     e.stopPropagation()
 
     //^ GET PROJECT TO DELETE FROM
-    let getProject = document.querySelector('.project.active')
-    let projectData = getItemById(getProject,'project')
+    // let getProject = document.querySelector('.project.active')
+    // let projectData = getItemById(getProject,'project')
 
     //^ GET TASK TO BE DELETED
     let taskElement = e.target.parentElement.parentElement
-    let taskId = getItemById(taskElement,'task')
+    let taskId = parseInt(taskElement.dataset.taskId)
+    let projectId = parseInt(taskElement.dataset.projectId)
+
+    console.log(projectId)
+    // let taskId = getItemById(taskElement,'task')
 
     taskElement.parentNode.removeChild(taskElement)
-    list.getProject(projectData.id).deleteTask(projectData.id,taskId)
+    let project = list.getProject(projectId)
+    project.deleteTask(projectId,taskId)
     console.log(list)
     
 
@@ -155,6 +160,8 @@ menu.forEach(button =>  {
     let taskContainer = document.getElementById('task-container')
     let elementTarget = element.target
     
+    let addTask = document.getElementById("add-task")
+    addTask.style.display = "none"
     // console.log(elementTarget.id)
     if(elementTarget.id === "home"){
         if (elementTarget.classList.contains('active')){
@@ -164,9 +171,10 @@ menu.forEach(button =>  {
         clearContainer(taskContainer)
         let todos = list.getAllTasks()
         console.log(todos)
-        todos.forEach(todo=>{
-            console.log(todo)
-            TaskView(todo.id,todo.title,todo.description,todo.priority,todo.dueDate)
+        todos.forEach(todo =>{
+            let projId = todo.projId 
+             todo = todo.taskdetail
+            TaskView(projId,todo.id,todo.title,todo.description,todo.priority,todo.dueDate)
         })
 
     }

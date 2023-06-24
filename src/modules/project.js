@@ -31,7 +31,7 @@ export class Project {
         
         if(!available){
             dueDate = new Date(dueDate)
-            addTaskUI(this.taskId, title, description,priority,dueDate)
+            addTaskUI(projectId,this.taskId, title, description,priority,dueDate)
             saveTask(projectId, toDo)
         }
 

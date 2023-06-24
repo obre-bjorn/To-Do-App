@@ -7,18 +7,18 @@ import { getItemById,deleteProject, deleteTask } from "../index";
 import { getList } from "../index";
 
 
-export function TaskView(id, title, description,priority,dueDate,remainingDays){
+export function TaskView(projectId,id, title, description,priority,dueDate,remainingDays){
     let taskContainer = document.getElementById('task-container')
 
     let taskHtml = `
-                  <div id= "task${id}" class="task">
+                  <div id="task${id}${projectId}" class="task" data-task-id="${id}" data-project-id="${projectId}">
                                 <div class="main-detail">
                                     <input type="checkbox" name="completed" id="" class="task-done">
-                                    <span class="task-name" id=taskname${id}>${title}</span>
+                                    <span class="task-name" id="taskname${id}">${title}</span>
                                     
                                     <i class="fa fa-pencil-square-o edit-task" aria-hidden="true"></i>
                                     <i class="fa-solid fa-trash delete-task"></i>
-                                    <p class="task-name" id=days${id}>remainingDays</p>
+                                    <p class="task-name" id="days${id}">remainingDays</p>
 
                                 </div>
                                 <div class="details">
@@ -78,9 +78,9 @@ export function TaskView(id, title, description,priority,dueDate,remainingDays){
                                     </form>
                                 </div>
                         </div>`
-                        taskContainer.insertAdjacentHTML("beforeend", taskHtml)
-                    
-                    let taskCont = document.querySelector(`#task${id}`)
+
+                    taskContainer.insertAdjacentHTML("beforeend", taskHtml)
+                    let taskCont = document.querySelector(`#task${id}${projectId}`)
 
                     // ^ Show task details
                     taskCont.addEventListener('click', function(e){
@@ -91,7 +91,7 @@ export function TaskView(id, title, description,priority,dueDate,remainingDays){
                 
 
                     // ^ Edit task
-                    let editTask = document.querySelector(`#task${id}>.main-detail>.edit-task`)
+                    let editTask = document.querySelector(`#task${id}${projectId}>.main-detail>.edit-task`)
                     let taskEditform = document.querySelector(`#edit-task${id}`)
                 
 
@@ -170,16 +170,16 @@ export function TaskView(id, title, description,priority,dueDate,remainingDays){
 
 
                     // ^ Delete task
-                    let deleteTaskBtn = document.querySelector(`#task${id}>.main-detail>.delete-task`)
+                    let deleteTaskBtn = document.querySelector(`#task${id}${projectId}>.main-detail>.delete-task`)
                     deleteTaskBtn.addEventListener('click',deleteTask)
 
                     // ^ Complete Task
-                    let completeTask = document.querySelector(`#task${id}>.main-detail>input[type="checkbox"]`)
+                    let completeTask = document.querySelector(`#task${id}${projectId}>.main-detail>input[type="checkbox"]`)
                     completeTask.addEventListener('click',(e)=>{
 
                         // ! CREATE FUNCTION FOR TASK COMPLETE
                         
-                        let taskName = document.querySelector(`#task${id}>.main-detail>.task-name`)
+                        let taskName = document.querySelector(`#task${id}${projectId}>.main-detail>.task-name`)
                         taskName.classList.toggle('done')
                         e.stopPropagation()
 
@@ -227,8 +227,9 @@ function addProject(id, title) {
 
 
 
-function addTask(id, title, description,priority,dueDate) {
-    TaskView(id,title,description,priority,dueDate)
+function addTask(projectId,id, title, description,priority,dueDate) {
+
+    TaskView(projectId,id,title,description,priority,dueDate)
 }
 
 
@@ -238,6 +239,9 @@ function displayTasks(element) {
     //Set active Button
     let taskContainer = document.getElementById('task-container')
     
+      let addTask = document.getElementById("add-task")
+    addTask.style.display = "block"
+
     if (element.target.classList.contains('active')) {
         return
     }
@@ -249,6 +253,7 @@ function displayTasks(element) {
             let activeProject = document.querySelector('.project.active')
             let project = getItemById(activeProject, 'project')
             let data = project.projectData
+            let projectId = project.id
         
             let tasks = data.getTasks()
         
@@ -259,7 +264,7 @@ function displayTasks(element) {
                 } 
             else {
                 tasks.forEach((task) =>{
-                    TaskView(task.id,task.title,task.description,task.priority,task.dueDate)
+                    TaskView(projectId,task.id,task.title,task.description,task.priority,task.dueDate)
         
             })
         }

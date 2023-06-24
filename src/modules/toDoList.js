@@ -41,7 +41,11 @@ export class ToDoList {
         let tasks = []
         this.projects.forEach(project=>{
             project.getTasks().forEach(task=>{
-                tasks.push(task)
+                let projectDetail = project.getProjectInfo() 
+                tasks.push(
+                    {taskdetail:task,
+                        projId:projectDetail.id}
+                    )
             })
         })
         return tasks
