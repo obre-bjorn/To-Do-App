@@ -35,36 +35,45 @@ export function createStorage(data) {
     if (storageAvailable("localStorage")) {
         // Yippee! We can use localStorage awesomeness
 
+        if (checkStorageData() === 0) {
+
+
+            localStorage.setItem("toDoList", JSON.stringify(data.getProjects()))
+
+
+        } else {
+
             let storage = JSON.parse(localStorage.getItem('toDoList'))
                 // console.log(storage)
+            storage.forEach(project => {
+                data.addProject(project.title, true)
+                console.log(project)
+                if(project.tasks.length){
+                    let projects = data.getProjects()
 
-            if(storage.length){
-                
-                storage.forEach(project => {
-                    data.addProject(project.title, true)
-                    console.log(project)
-                    if(project.tasks.length){
-                        let projects = data.getProjects()
-    
-                        let tasks = project.tasks
-                        tasks.forEach(task=> {
-                            projects[projects.length - 1].addTask(project.id,task.title,task.description,task.priority,task.dueDate,true)
-                        })
-                    }
-                });
-            }
+                    let tasks = project.tasks
+                    tasks.forEach(task=> {
+                        projects[projects.length - 1].addTask(project.id,task.title,task.description,task.priority,task.dueDate,true)
+                    })
+                }
+            });
 
-             document.addEventListener("DOMContentLoaded", function() {
-              
-                 let today = document.querySelector('#home')
-                 today.click()
-    });     
 
         }
         // console.log(data.getProjects())
         
+             document.addEventListener("DOMContentLoaded", function() {
+              
+                 let today = document.querySelector('#home')
+                 today.click()
+    });
+        
+    } else {
+        // Too bad, no localStorage for us
+    }
     
-    
+    let today = document.querySelector('#home')
+    today.click()
 }
 
 
