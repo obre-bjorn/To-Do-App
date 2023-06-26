@@ -46,14 +46,17 @@ export function createStorage(data) {
             for(let i = 0;i < projects; i++){
                let  project = storage[i]
                 data.addProject(project.title,true)
+                console.log(project.tasks)
 
-                if(project.tasks.length){
-                    let projects = data.getProjects()
+                if(project.tasks.length > 0){
+                    let projs = data.getProjects()
+                    console.log(projs)
     
                     let tasks = project.tasks
-                    for(let j; j < tasks.length; j++){
+                    for(let j=0; j < tasks.length; j++){
                         let task = tasks[j]
-                         projects[projects.length - 1].addTask(project.id,task.title,task.description,task.priority,task.dueDate,true)
+                        console.log(task)
+                         projs[i].addTask(project.id,task.title,task.description,task.priority,task.dueDate,true)
                     }
                     
                 }
