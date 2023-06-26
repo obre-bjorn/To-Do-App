@@ -76,7 +76,7 @@ export function createStorage(data) {
 
                 // data.addProject('Coding')
                 // data.getProjects()[1].addToDo('Learn and Practice HTML', new Date())
-            return 
+            
             
         }
 
