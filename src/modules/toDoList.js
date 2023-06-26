@@ -1,5 +1,5 @@
 import { Project } from "./project.js";
-import { createStorage, saveProject as saveProjToStorage, checkStorageData,deleteProject as delProjFromStorage } from "./storage.js";
+import { saveProject as saveProjToStorage,deleteProject as delProjFromStorage } from "./storage.js";
 import { addProject as domAddProject } from "./UI.js";
 
 export class ToDoList {

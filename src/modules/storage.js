@@ -34,67 +34,86 @@ export function createStorage(data) {
 
     if (storageAvailable("localStorage")) {
         // Yippee! We can use localStorage awesomeness
-        let dataAvailability = checkStorageData()
-        if (dataAvailability !== 0) {
+        let dataAvailability = checkStorageData(data)
+        if (dataAvailability > 0) {
 
 
             let storage = JSON.parse(localStorage.getItem('toDoList'))
                 // console.log(storage)
                 console.log(storage)
-            storage.forEach(project => {
-                data.addProject(project.title, true)
-                console.log(project)
+            let projects = storage.length
+
+            for(let i = 0;i < projects; i++){
+               let  project = storage[i]
+                data.addProject(project.title,true)
 
                 if(project.tasks.length){
                     let projects = data.getProjects()
     
                     let tasks = project.tasks
-                    tasks.forEach(task=> {
-                        projects[projects.length - 1].addTask(project.id,task.title,task.description,task.priority,task.dueDate,true)
-                    })
+                    for(let j; j < tasks.length; j++){
+                        let task = tasks[j]
+                         projects[projects.length - 1].addTask(project.id,task.title,task.description,task.priority,task.dueDate,true)
+                    }
+                    
                 }
-            });
+
+            }
+            // storage.forEach(project => {
+            //     data.addProject(project.title, true)
+            //     console.log(project)
+
+            //     if(project.tasks.length){
+            //         let projects = data.getProjects()
+    
+            //         let tasks = project.tasks
+            //         tasks.forEach(task=> {
+            //             projects[projects.length - 1].addTask(project.id,task.title,task.description,task.priority,task.dueDate,true)
+            //         })
+            //     }
+            // });
             
 
                 // data.addProject('Coding')
                 // data.getProjects()[1].addToDo('Learn and Practice HTML', new Date())
-
+            return 
             
-        } else{
-
-            localStorage.setItem("toDoList", JSON.stringify(data.getProjects()))
-            console.log('Initial storage saved:', data.getProjects());
-
         }
 
        // localStorage.setItem("toDoList", JSON.stringify(data.getProjects()));
-
-
-        
-        // console.log(data.getProjects())
-        document.addEventListener("DOMContentLoaded", function() {
-         
-            let today = document.querySelector('#home')
-            today.click()
-    });
+       
+       
+       
+       // console.log(data.getProjects())
+       document.addEventListener("DOMContentLoaded", function() {
+           
+           let today = document.querySelector('#home')
+           today.click()
+        });
         
     } 
     
-   
+    
 }
 
 
-export function checkStorageData() {
-    let data = JSON.parse(localStorage.getItem('toDoList'))
-    if (!data) {
-        return 0;
+export function checkStorageData(data) {
+    let local= JSON.parse(localStorage.getItem('toDoList'))
+
+    if(local == null){
+
+        localStorage.setItem("toDoList", JSON.stringify(data.getProjects()))
+        console.log('Initial storage saved:', data.getProjects());
+        return
+
+    }else{
+        
+        return 1
     }
-         console.log(data)
-        let lastIndex = data.length-1
-        if (lastIndex >= 0 && lastIndex < data.length) {
-        let lastDataId = data[lastIndex].id
-        return (lastDataId)
-        }
+    
+        // let lastIndex = local.length - 1
+        // let lastDataId = local[lastIndex].id
+        // return (lastDataId)
 }
 
 
